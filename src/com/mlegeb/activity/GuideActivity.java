@@ -1,4 +1,8 @@
-package com.mlegeb.appclient;
+package com.mlegeb.activity;
+
+import com.mlegeb.appclient.R;
+
+
 
 
 import android.app.Activity;
@@ -6,17 +10,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends Activity {
+public class GuideActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_guide);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.guide, menu);
 		return true;
 	}
 

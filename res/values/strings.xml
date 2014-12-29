@@ -4,5 +4,10 @@
     <string name="app_name">APPClient</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="title_activity_guide">GuideActivity</string>
+    <string name="main_str">主页</string>
+    <string name="guide_str">引导页面</string>
+    <string name="title_activity_setting">SettingActivity</string>
 
 </resources>
