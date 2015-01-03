@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">APPClient</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">无线控制器</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_welcome">WelcomeActivity</string>
-    <string name="title_activity_guide">GuideActivity</string>
+    <string name="title_activity_welcome">无线控制器</string>
+    <string name="title_activity_guide">引导页</string>
     <string name="main_str">主页</string>
-    <string name="guide_str">引导页面</string>
+    <string name="guide_str">欢迎使用无线控制器</string>
     <string name="title_activity_setting">SettingActivity</string>
+    <string name="back_exit_tips">再按一次退出</string>
+
+    <!-- 主页 -->
+    <string name="main_app_name">WIFI  Control</string>
+    <string name="main_defult_ip">192.168.1.100</string>
+    <string name="main_connection">连接</string>
+
+    <!-- 欢迎页 -->
+    <string name="welcome_str">欢迎使用无线控制器</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_about">AboutActivity</string>
 
 </resources>

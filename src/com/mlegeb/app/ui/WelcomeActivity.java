@@ -1,4 +1,4 @@
-package com.mlegeb.activity;
+package com.mlegeb.app.ui;
 
 import com.mlegeb.appclient.R;
 
