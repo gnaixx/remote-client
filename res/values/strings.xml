@@ -18,5 +18,9 @@
     <!-- 欢迎页 -->
     <string name="welcome_str">欢迎使用无线控制器</string>
     <string name="hello_world">Hello world!</string>
+    
+    <!-- 关机页 -->
+    <string name="shutdown_send_btn">发送</string>
+    <string name="shutdown_title_text">CMD命令</string>
 
 </resources>
