@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.mlegeb.activity.WelcomeActivity"
+            android:name="com.mlegeb.app.ui.WelcomeActivity"
             android:label="@string/title_activity_welcome" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,16 +23,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mlegeb.activity.MainActivity"
+            android:name="com.mlegeb.app.ui.MainActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.mlegeb.activity.GuideActivity"
+            android:name="com.mlegeb.app.ui.GuideActivity"
             android:label="@string/title_activity_guide" >
         </activity>
         <activity
-            android:name="com.mlegeb.activity.SettingActivity"
+            android:name="com.mlegeb.app.ui.SettingActivity"
             android:label="@string/title_activity_setting" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.app.ui.MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.app.ui.AboutActivity"
+            android:label="@string/title_activity_about" >
         </activity>
     </application>
 
