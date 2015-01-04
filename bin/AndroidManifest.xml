@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mlegeb.appclient"
+    package="com.mlegeb.app"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -35,13 +37,40 @@
             android:label="@string/title_activity_setting" >
         </activity>
         <activity
-            android:name="com.mlegeb.app.ui.MenuActivity"
-            android:label="@string/title_activity_menu" >
+            android:name="com.mlegeb.app.ui.MenuActivity" >
         </activity>
         <activity
-            android:name="com.mlegeb.app.ui.AboutActivity"
-            android:label="@string/title_activity_about" >
+            android:name="com.mlegeb.app.ui.AboutActivity" >
         </activity>
+
+        <service android:name="com.mlegeb.app.server.SocketService" >
+        </service>
+
+        <activity
+            android:name="com.mlegeb.app.ui.PowerPointActivity" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.app.ui.MouseActivity" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.app.ui.GameActivity">
+        </activity>
+        <activity
+            android:name="com.mlegeb.app.ui.MusicActivity">
+        </activity>
+        <activity
+            android:name=".ui.InputActivity">
+        </activity>
+        <activity
+            android:name=".ui.WindowActivity" >
+        </activity>
+        <activity
+            android:name=".ui.ShutdownActivity" >
+        </activity>
+        <activity
+            android:name=".ui.MoreActivity" >
+        </activity>
+
     </application>
 
 </manifest>

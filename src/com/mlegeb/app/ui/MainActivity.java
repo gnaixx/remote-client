@@ -1,8 +1,10 @@
 package com.mlegeb.app.ui;
 
 import com.mlegeb.app.AppConfig;
+import com.mlegeb.app.R;
+import com.mlegeb.app.common.SavePreference;
 import com.mlegeb.app.server.SocketService;
-import com.mlegeb.appclient.R;
+import com.mlegeb.app.transmission.CheckConnection;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -14,6 +16,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends BaseActivity implements OnClickListener{
 
@@ -47,14 +50,26 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		connBtn.setOnClickListener(this);
 		settingsBtn.setOnClickListener(this);
 		aboutBtn.setOnClickListener(this);
+		
+		serverIpEdit.setText(SavePreference.getIpAddress(this));
 	}
 
 	private class ServerReceiver extends BroadcastReceiver{
 
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			Intent intentAct = new Intent(MainActivity.this, MenuActivity.class);
-			MainActivity.this.startActivity(intentAct);
+			if(intent.getAction().equals(AppConfig.RETURN_ACTION)){
+				if(intent.getBooleanExtra("result", false)){
+					Toast.makeText(MainActivity.this, "连接成功！", Toast.LENGTH_LONG).show();
+					
+					SavePreference.saveIpAddress(MainActivity.this, serverIpEdit.getText().toString());
+					Intent intentAct = new Intent(MainActivity.this, MenuActivity.class);
+					MainActivity.this.startActivity(intentAct);
+				}
+				else{
+					Toast.makeText(MainActivity.this, "连接失败！", Toast.LENGTH_LONG).show();
+				}
+			}
 		}
 
 	}
@@ -109,9 +124,16 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	}
 
 	private void connectionEvent(){
+		
 		serverIpStr = serverIpEdit.getText().toString();
+		
+		//开启服务  监听端口
 		Intent intentService = new Intent(this, SocketService.class);
 		this.startService(intentService);
+
+		CheckConnection check = new CheckConnection(serverIpStr);
+		check.sendCheck(AppConfig.CONNECTION_STR);
+
 	}
 
 	private void aboutEvent(){

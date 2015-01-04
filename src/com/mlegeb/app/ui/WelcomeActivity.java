@@ -1,6 +1,7 @@
 package com.mlegeb.app.ui;
 
-import com.mlegeb.appclient.R;
+
+import com.mlegeb.app.R;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,8 +10,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
-import android.view.MenuItem;
+
 
 public class WelcomeActivity extends Activity {
 	private final int SPLASH_DISPLAY_LENGHT = 2000; // 延迟3秒  
@@ -56,18 +56,4 @@ public class WelcomeActivity extends Activity {
 		},SPLASH_DISPLAY_LENGHT);
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.welcome, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
 }

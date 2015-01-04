@@ -1,6 +1,7 @@
 package com.mlegeb.app.ui;
 
-import com.mlegeb.appclient.R;
+import com.mlegeb.app.R;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;

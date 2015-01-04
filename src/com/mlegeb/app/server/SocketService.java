@@ -13,6 +13,9 @@ import android.os.Message;
 import android.widget.Toast;
 
 public class SocketService extends Service {
+	
+	private final static String TAG = "soketService";
+	private final static boolean isDebug = true;
 
 	private DatagramSocket inSocket;
 	private MyHandler myHandler;
@@ -46,18 +49,25 @@ public class SocketService extends Service {
 
 		@Override
 		public void run() {
+			Message message = Message.obtain();
 			try{
 				byte[] buf = new byte[1024];
 				DatagramPacket op = new DatagramPacket(buf, buf.length);
+				SocketService.this.inSocket.setSoTimeout(2000);
 				SocketService.this.inSocket.receive(op);
-				String receiveStr = new String(buf);
-				if(receiveStr.equals("Connection Successful")){
-					Message message = Message.obtain();
+				String receiveStr = new String(buf).trim();
+				if(isDebug) System.out.println(TAG + receiveStr);
+				if(receiveStr.equals("Successful")){
+					if(isDebug) System.out.println(TAG + ":conntection");
 					message.what = 1;
 					myHandler.sendMessage(message);
+					return;
 				}
 				
 			}catch(Exception e){
+				message.what = 0;
+				myHandler.sendMessage(message);
+				if(isDebug) System.out.println(TAG + ":connection fail");
 				e.printStackTrace();
 			}
 		}
@@ -68,11 +78,21 @@ public class SocketService extends Service {
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
-			
+			Intent intent = new Intent(AppConfig.RETURN_ACTION);
 			if(msg.what == 1){
-				sendBroadcast(new Intent(AppConfig.RETURN_ACTION));
+				intent.putExtra("result", true);
 			}
+			else {
+				intent.putExtra("result", false);
+			}
+			sendBroadcast(intent);
 		}
 	}
 
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		if(isDebug) System.out.println(TAG + ":destroy");
+		this.inSocket.close();
+	}
 }

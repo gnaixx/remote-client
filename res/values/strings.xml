@@ -17,8 +17,6 @@
 
     <!-- 欢迎页 -->
     <string name="welcome_str">欢迎使用无线控制器</string>
-    <string name="title_activity_menu">MenuActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_about">AboutActivity</string>
 
 </resources>

@@ -1,10 +1,11 @@
 package com.mlegeb.app.ui;
 
-import com.mlegeb.appclient.R;
 
 
 
 
+
+import com.mlegeb.app.R;
 
 import android.app.Activity;
 import android.content.Intent;

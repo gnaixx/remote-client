@@ -1,6 +1,6 @@
 package com.mlegeb.app.ui;
 import com.mlegeb.app.AppManager;
-import com.mlegeb.appclient.R;
+import com.mlegeb.app.R;
 
 import android.app.Activity;
 import android.os.Handler;
