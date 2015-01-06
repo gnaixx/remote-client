@@ -1,32 +1,48 @@
 package com.mlegeb.app.ui;
 
 
-import com.mlegeb.app.R;
 
+import com.mlegeb.app.R;
+import com.mlegeb.app.common.KeyboardUtil;
+import com.mlegeb.app.transmission.KeyboardTransmission;
+
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.text.InputType;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
+import android.widget.EditText;
 
 public class InputActivity extends BaseActivity {
 
+	private EditText editText;
+	private KeyboardTransmission transmission;
+	private KeyboardUtil keyboard;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_input);
+
+		initView();
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.input, menu);
-		return true;
-	}
+	private void initView(){
+		transmission = new KeyboardTransmission();
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+		editText = (EditText) findViewById(R.id.edit_tv);
+		editText.setInputType(InputType.TYPE_NULL);
+		keyboard = new KeyboardUtil(InputActivity.this, 
+				InputActivity.this, 
+				editText,
+				transmission);
+		keyboard.showKeyboard();
+		editText.setOnTouchListener(new OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				keyboard.showKeyboard();
+				return true;
+			}
+		});
 	}
 }

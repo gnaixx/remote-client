@@ -17,7 +17,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.mlegeb.app.ui.WelcomeActivity"
-            android:label="@string/title_activity_welcome" >
+            android:label="@string/title_activity_welcome"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,51 +27,63 @@
         </activity>
         <activity
             android:name="com.mlegeb.app.ui.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.mlegeb.app.ui.GuideActivity"
-            android:label="@string/title_activity_guide" >
+            android:label="@string/title_activity_guide"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="com.mlegeb.app.ui.SettingActivity"
-            android:label="@string/title_activity_setting" >
+            android:label="@string/title_activity_setting"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.mlegeb.app.ui.MenuActivity" >
+            android:name="com.mlegeb.app.ui.MenuActivity"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.mlegeb.app.ui.AboutActivity" >
+            android:name="com.mlegeb.app.ui.AboutActivity"
+            android:screenOrientation="portrait" >
         </activity>
 
         <service android:name="com.mlegeb.app.server.SocketService" >
         </service>
 
         <activity
-            android:name="com.mlegeb.app.ui.PowerPointActivity" >
+            android:name="com.mlegeb.app.ui.PowerPointActivity"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.mlegeb.app.ui.MouseActivity" >
+            android:name="com.mlegeb.app.ui.MouseActivity"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.mlegeb.app.ui.GameActivity">
+            android:name="com.mlegeb.app.ui.GameActivity"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.mlegeb.app.ui.MusicActivity">
+            android:name="com.mlegeb.app.ui.MusicActivity"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".ui.InputActivity">
+            android:name=".ui.InputActivity"
+            android:screenOrientation="landscape">"
         </activity>
         <activity
-            android:name=".ui.WindowActivity" >
+            android:name=".ui.WindowActivity"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".ui.ShutdownActivity" >
+            android:name=".ui.ShutdownActivity"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".ui.MoreActivity" >
+            android:name=".ui.MoreActivity"
+            android:screenOrientation="portrait" >
         </activity>
-
     </application>
 
 </manifest>
