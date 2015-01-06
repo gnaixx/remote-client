@@ -11,22 +11,31 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.mlegeb.app.ui.ShutdownActivity" >
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="0.01"
+        android:text="@string/shutdown_title_str" />
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.7"
+        android:layout_weight="0.8"
         android:orientation="vertical" >
     </LinearLayout>
 
     <com.mlegeb.app.widget.LineView
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        uview:backgroud="#000000" />
+        uview:backgroud="#000000" 
+        android:layout_marginBottom="5dp"/>
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.3"
+        android:layout_weight="0.2"
         android:orientation="vertical" >
 
         <LinearLayout

@@ -22,5 +22,10 @@
     <!-- 关机页 -->
     <string name="shutdown_send_btn">发送</string>
     <string name="shutdown_title_text">CMD命令</string>
+    <string name="shutdown_title_str">cmd命令以及关机/休眠</string>
+    
+    
+    <!-- 窗口页 -->
+    <string name="window_title_str">窗口操作及切换</string>
 
 </resources>

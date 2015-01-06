@@ -61,8 +61,9 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			if(intent.getAction().equals(AppConfig.RETURN_ACTION)){
 				if(intent.getBooleanExtra("result", false)){
 					Toast.makeText(MainActivity.this, "连接成功！", Toast.LENGTH_LONG).show();
+					AppConfig.conn_address = serverIpStr;
 					
-					SavePreference.saveIpAddress(MainActivity.this, serverIpEdit.getText().toString());
+					SavePreference.saveIpAddress(MainActivity.this, serverIpStr);
 					Intent intentAct = new Intent(MainActivity.this, MenuActivity.class);
 					MainActivity.this.startActivity(intentAct);
 				}

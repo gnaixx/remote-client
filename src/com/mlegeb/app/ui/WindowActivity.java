@@ -1,17 +1,53 @@
 package com.mlegeb.app.ui;
 
 import com.mlegeb.app.R;
+import com.mlegeb.app.transmission.WindowTransmssion;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
 
-public class WindowActivity extends BaseActivity {
+public class WindowActivity extends BaseActivity implements OnClickListener{
 
+	private ImageButton backBtn;
+	private ImageButton nextBtn;
+	private ImageButton minBtn;
+	private ImageButton maxBtn;
+	private ImageButton newBtn;
+	private ImageButton closeBtn;
+	
+	private WindowTransmssion transmission;
+	private boolean isMax = false;
+	
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_window);
+		
+		
+		transmission = new WindowTransmssion();
+		initView();
+	}
+	
+	private void initView(){
+		backBtn = (ImageButton) findViewById(R.id.imageButton1);
+		nextBtn = (ImageButton) findViewById(R.id.imageButton2);
+		minBtn = (ImageButton) findViewById(R.id.imageButton3);
+		maxBtn = (ImageButton) findViewById(R.id.imageButton4);
+		newBtn = (ImageButton) findViewById(R.id.imageButton5);
+		closeBtn = (ImageButton) findViewById(R.id.imageButton6);
+		
+		backBtn.setOnClickListener(this);
+		nextBtn.setOnClickListener(this);
+		minBtn.setOnClickListener(this);
+		maxBtn.setOnClickListener(this);
+		newBtn.setOnClickListener(this);
+		closeBtn.setOnClickListener(this);
 	}
 
 	@Override
@@ -27,5 +63,37 @@ public class WindowActivity extends BaseActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch(v.getId()){
+		case R.id.imageButton1:
+			transmission.sendWindowControl("-1");
+			break;
+		case R.id.imageButton2:
+			transmission.sendWindowControl("1");
+			break;
+		case R.id.imageButton3:
+			transmission.sendWindowControl("2");
+			break;
+		case R.id.imageButton4:
+			if(isMax){
+				transmission.sendWindowControl("3");
+				isMax = false;
+			}
+			else{
+				transmission.sendWindowControl("-3");
+				isMax = true;
+			}
+			break;
+		case R.id.imageButton5:
+			transmission.sendWindowControl("5");
+			break;
+		case R.id.imageButton6:
+			transmission.sendWindowControl("4");
+			break;
+			
+		}
 	}
 }

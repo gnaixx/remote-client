@@ -15,6 +15,17 @@ public class AppConfig {
 	public final static String RETURN_ACTION = "com.mlegeb.socket";
 	public final static String IP_DATA = "perf_ipaddress";
 	
+	public final static int INIT_STATE     = 0;  //初始化
+	public final static int GAME_STATE     = 1;  //手柄模式
+	public final static int INPUT_STATE    = 2;  //输入模式
+	public final static int MOUSE_STATE    = 3;  //鼠标模式
+	public final static int MUSIC_STATE    = 4;  //播放器模式
+	public final static int PPT_STATE      = 5;  //PPT模式
+	public final static int SHUTDOWN_STATE = 6;  //关机模式
+	public final static int WINDOW_STATE   = 7;  //窗口模式
+	
+	public static String conn_address = "";    
+	
 	private Context mContext;
 	private static AppConfig appConfig;
 
