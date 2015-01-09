@@ -9,7 +9,7 @@ import java.util.List;
 import com.mlegeb.app.AppConfig;
 import com.mlegeb.app.R;
 import com.mlegeb.app.transmission.KeyboardTransmission;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.inputmethodservice.Keyboard;
@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+@SuppressLint("DefaultLocale")
 public class KeyboardUtil {
 	private Context myContext;
 	private Activity myActivity;

@@ -5,8 +5,7 @@ package com.mlegeb.app.ui;
 import com.mlegeb.app.R;
 import com.mlegeb.app.common.KeyboardUtil;
 import com.mlegeb.app.transmission.KeyboardTransmission;
-
-import android.content.res.Configuration;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.MotionEvent;
@@ -27,6 +26,7 @@ public class InputActivity extends BaseActivity {
 		initView();
 	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	private void initView(){
 		transmission = new KeyboardTransmission();
 
