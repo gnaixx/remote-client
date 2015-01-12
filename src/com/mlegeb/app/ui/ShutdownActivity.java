@@ -1,16 +1,20 @@
 package com.mlegeb.app.ui;
 
 import com.mlegeb.app.R;
+import com.mlegeb.app.common.MouseManager;
+import com.mlegeb.app.transmission.MouseTransmission;
 import com.mlegeb.app.transmission.ShutdownTransmission;
 
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 public class ShutdownActivity extends BaseActivity implements OnClickListener{
 
@@ -19,13 +23,16 @@ public class ShutdownActivity extends BaseActivity implements OnClickListener{
 	private ImageButton powerBtn;
 	private ImageButton sleepBtn;
 	private ShutdownTransmission transmission;
+	private LinearLayout mousePanel;
 	
+	private MouseManager mouseManager;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_shut_down);
 		
 		transmission = new ShutdownTransmission();
+		mouseManager = new MouseManager();
 		InitView();
 	}
 	
@@ -38,6 +45,26 @@ public class ShutdownActivity extends BaseActivity implements OnClickListener{
 		sendBtn.setOnClickListener(this);
 		powerBtn.setOnClickListener(this);
 		sleepBtn.setOnClickListener(this);
+		
+		mousePanel = (LinearLayout) findViewById(R.id.mouse_panel);
+		mousePanel.setOnTouchListener(new View.OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				switch(event.getAction()){
+				case MotionEvent.ACTION_MOVE:
+					mouseManager.onMouseMove(event);
+					break;
+				case MotionEvent.ACTION_DOWN:
+					mouseManager.onMouseDown(event);
+					break;
+				case MotionEvent.ACTION_UP:
+					mouseManager.onMouseUp(event);
+					break;
+				}
+				return true;
+			}
+		});
 	}
 
 	@Override

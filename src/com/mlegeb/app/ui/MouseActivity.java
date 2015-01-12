@@ -1,6 +1,7 @@
 package com.mlegeb.app.ui;
 
 import com.mlegeb.app.R;
+import com.mlegeb.app.common.MouseManager;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,16 +11,18 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 public class MouseActivity extends BaseActivity {
-
+	
+	private MouseManager mouseManager;
 	private FrameLayout touchPanel;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mouse);
-		
+		mouseManager = new MouseManager();
 		initView();
 	}
+
 	
 	private void initView(){
 		touchPanel = (FrameLayout) findViewById(R.id.touch_panel);
@@ -30,31 +33,21 @@ public class MouseActivity extends BaseActivity {
 			public boolean onTouch(View v, MotionEvent event) {
 				switch(event.getAction()){
 				case MotionEvent.ACTION_MOVE:
-					onMouseMove(event);
+//					System.out.println("--->move");
+					mouseManager.onMouseMove(event);
 					break;
 				case MotionEvent.ACTION_DOWN:
-					onMouseDown(event);
+//					System.out.println("--->down");
+					mouseManager.onMouseDown(event);
 					break;
 				case MotionEvent.ACTION_UP:
-					onMouseUp(event);
+//					System.out.println("--->up");
+					mouseManager.onMouseUp(event);
 					break;
 				}
-				
 				return true;
 			}
 		});
-	}
-	
-	private void onMouseMove(MotionEvent event){
-		
-	}
-	
-	private void onMouseDown(MotionEvent event){
-		
-	}
-	
-	private void onMouseUp(MotionEvent event){
-		
 	}
 
 	@Override

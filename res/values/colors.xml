@@ -50,4 +50,7 @@
     <color name="viewfinder_frame">#ff000000</color>
     <color name="viewfinder_laser">#ffff0000</color>
     <color name="viewfinder_mask">#60000000</color>
+    
+    <color name="music_pressed">#646464</color>
+    <color name="music_normal">#E8E8E8</color>
 </resources>
