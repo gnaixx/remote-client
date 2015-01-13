@@ -44,31 +44,30 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_weight="0.5" >
-"
 
         <ImageButton
             android:id="@+id/imageButton4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/btn_color"
-            android:src="@drawable/music_close" 
-            android:layout_weight="1"/>
+            android:src="@drawable/music_close" />
 
         <ImageButton
             android:id="@+id/imageButton5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/btn_color"
-            android:src="@drawable/music_up" 
-             android:layout_weight="1"/>
+            android:src="@drawable/music_up" />
 
         <ImageButton
             android:id="@+id/imageButton6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:background="@drawable/btn_color"
-            android:src="@drawable/music_down" 
-             android:layout_weight="1"/>
+            android:src="@drawable/music_down" />
     </LinearLayout>
 
 </LinearLayout>

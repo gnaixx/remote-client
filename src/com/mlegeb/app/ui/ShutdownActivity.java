@@ -2,9 +2,8 @@ package com.mlegeb.app.ui;
 
 import com.mlegeb.app.R;
 import com.mlegeb.app.common.MouseManager;
-import com.mlegeb.app.transmission.MouseTransmission;
 import com.mlegeb.app.transmission.ShutdownTransmission;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,7 +47,7 @@ public class ShutdownActivity extends BaseActivity implements OnClickListener{
 		
 		mousePanel = (LinearLayout) findViewById(R.id.mouse_panel);
 		mousePanel.setOnTouchListener(new View.OnTouchListener() {
-			
+			@SuppressLint("ClickableViewAccessibility")
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				switch(event.getAction()){

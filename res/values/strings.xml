@@ -17,7 +17,8 @@
 
     <!-- 欢迎页 -->
     <string name="welcome_str">欢迎使用无线控制器</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">更多功能尚待开发！</string>
+    <string name="about_str">本次APP所有权归MLGB所有</string>
     
     <!-- 关机页 -->
     <string name="shutdown_send_btn">发送</string>
