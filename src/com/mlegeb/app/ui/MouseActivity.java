@@ -2,7 +2,7 @@ package com.mlegeb.app.ui;
 
 import com.mlegeb.app.R;
 import com.mlegeb.app.common.MouseManager;
-
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,7 +28,7 @@ public class MouseActivity extends BaseActivity {
 		touchPanel = (FrameLayout) findViewById(R.id.touch_panel);
 		
 		touchPanel.setOnTouchListener(new View.OnTouchListener() {
-			
+			@SuppressLint("ClickableViewAccessibility")
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				switch(event.getAction()){

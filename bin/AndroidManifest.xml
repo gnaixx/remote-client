@@ -62,7 +62,7 @@
         </activity>
         <activity
             android:name="com.mlegeb.app.ui.GameActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name="com.mlegeb.app.ui.MusicActivity"
