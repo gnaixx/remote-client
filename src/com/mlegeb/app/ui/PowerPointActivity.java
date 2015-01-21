@@ -21,7 +21,9 @@ public class PowerPointActivity extends BaseActivity implements OnClickListener{
 
 
 	private PowerPointTransmission transmission;
-	private static boolean flag;
+
+	private static boolean isNormal = true;
+
 
 
 	@Override
@@ -69,17 +71,37 @@ public class PowerPointActivity extends BaseActivity implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.imageButton1:
+			transmission.sendPPTControl(0);
 			break;
 		case R.id.imageButton2:
+			transmission.sendPPTControl(1);
 			break;
 		case R.id.imageButton3:
+			transmission.sendPPTControl(2);
 			break;
 		case R.id.imageButton4:
+			transmission.sendPPTControl(3);
 			break;
 		case R.id.imageButton5:
+			setType();
 			break;
 		case R.id.imageButton6:
+			transmission.sendPPTControl(4);
 			break;
+		}
+	}
+	
+	private void setType(){
+		System.out.println("--->" + isNormal);
+		if(!isNormal){
+			isNormal = true;
+			stateBtn.setImageResource(R.drawable.ppt_state_1);
+			transmission.sendPPTControl(5);
+		}
+		else{
+			isNormal = false;
+			stateBtn.setImageResource(R.drawable.ppt_state_2);
+			transmission.sendPPTControl(6);
 		}
 	}
 }

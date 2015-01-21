@@ -8,7 +8,7 @@ public class GameTransmission extends Transmission {
 		super(AppConfig.conn_address);
 	}
 	
-	public void sendGameButton(int type){
+	public void sendGameButton(String type){
 		int state = AppConfig.GAME_STATE;
 		String data = state + ":" + type;
 		send(data);

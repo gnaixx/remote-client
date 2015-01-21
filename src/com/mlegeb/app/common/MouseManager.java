@@ -49,4 +49,10 @@ public class MouseManager {
 			transmission.sendMouseButton(1);
 		}
 	}
+	
+	
+	public void onMouseBtn(int type){
+		transmission.sendMouseButton(type);
+	}
+	
 }

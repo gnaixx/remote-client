@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 
 public class MouseActivity extends BaseActivity {
@@ -15,11 +16,15 @@ public class MouseActivity extends BaseActivity {
 	private MouseManager mouseManager;
 	private FrameLayout touchPanel;
 	
+	private Button leftBtn;
+	private Button rightBtn;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mouse);
 		mouseManager = new MouseManager();
+		
 		initView();
 	}
 
@@ -46,6 +51,31 @@ public class MouseActivity extends BaseActivity {
 					break;
 				}
 				return true;
+			}
+		});
+		
+		leftBtn = (Button) findViewById(R.id.button1);
+		
+		leftBtn.setOnTouchListener(new View.OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) { 
+				if(event.getAction() == MotionEvent.ACTION_DOWN){
+					mouseManager.onMouseBtn(2);
+				}
+				else if(event.getAction() == MotionEvent.ACTION_UP){
+					mouseManager.onMouseBtn(3);
+				}
+				return true;
+			}
+		});
+		rightBtn = (Button) findViewById(R.id.button2);
+		
+		rightBtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				mouseManager.onMouseBtn(4);
 			}
 		});
 	}
