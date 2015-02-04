@@ -11,8 +11,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
+/**
+ * 名称: MenuActivity.java
+ * 描述: 菜单页面
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class MenuActivity extends BaseActivity implements OnClickListener{
 
+	/** 不同模式按钮 */
 	private ImageButton mouseBtn;
 	private ImageButton pptBtn;
 	private ImageButton inputBtn;

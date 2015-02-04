@@ -11,11 +11,23 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+/**
+ * 名称: MouseActivity.java
+ * 描述: 鼠标页面
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class MouseActivity extends BaseActivity {
 	
+	/** 鼠标管理工具 类*/
 	private MouseManager mouseManager;
+	
+	/** 触摸区域 */
 	private FrameLayout touchPanel;
 	
+	/** 鼠标左/右键 */
 	private Button leftBtn;
 	private Button rightBtn;
 	
@@ -32,6 +44,7 @@ public class MouseActivity extends BaseActivity {
 	private void initView(){
 		touchPanel = (FrameLayout) findViewById(R.id.touch_panel);
 		
+		//触摸事件处理
 		touchPanel.setOnTouchListener(new View.OnTouchListener() {
 			@SuppressLint("ClickableViewAccessibility")
 			@Override
@@ -55,7 +68,7 @@ public class MouseActivity extends BaseActivity {
 		});
 		
 		leftBtn = (Button) findViewById(R.id.button1);
-		
+		//左键事件处理
 		leftBtn.setOnTouchListener(new View.OnTouchListener() {
 			
 			@Override
@@ -70,7 +83,7 @@ public class MouseActivity extends BaseActivity {
 			}
 		});
 		rightBtn = (Button) findViewById(R.id.button2);
-		
+		//右键事件处理
 		rightBtn.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

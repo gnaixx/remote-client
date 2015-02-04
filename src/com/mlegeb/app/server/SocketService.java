@@ -12,14 +12,29 @@ import android.os.IBinder;
 import android.os.Message;
 import android.widget.Toast;
 
+/**
+ * 名称: SocketService.java
+ * 描述: Service监听Socket是否有Pc传来的信息
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class SocketService extends Service {
 	
+	/** Log标签 */
 	private final static String TAG = "soketService";
+	
+	/** Log开关 */
 	private final static boolean isDebug = true;
 
+	/** UDP传输协议 */
 	private DatagramSocket inSocket;
+	
+	/** 跨线程信息传递 */
 	private MyHandler myHandler;
 
+	/** 初始化变量 */
 	@Override
 	public void onCreate() {
 		super.onCreate();
@@ -33,18 +48,28 @@ public class SocketService extends Service {
 		}
 	}
 
+	/** 开启监听线程 */
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		new Thread(new SocketListener()).start();
 		return super.onStartCommand(intent, flags, startId);
 	}
-
+	
 	@Override
 	public IBinder onBind(Intent intent) {
 		return null;
 	}
 
 	
+	
+	/**
+	 * 名称: SocketService.java
+	 * 描述: 线程Run函数实现
+	 *
+	 * @author a_xiang
+	 * @version v1.0
+	 * @created 2015年2月4日
+	 */
 	class SocketListener implements Runnable{
 
 		@Override
@@ -53,18 +78,22 @@ public class SocketService extends Service {
 			try{
 				byte[] buf = new byte[1024];
 				DatagramPacket op = new DatagramPacket(buf, buf.length);
+				//设置超时时间为2秒
 				SocketService.this.inSocket.setSoTimeout(2000);
 				SocketService.this.inSocket.receive(op);
 				String receiveStr = new String(buf).trim();
 				if(isDebug) System.out.println(TAG + receiveStr);
+				//判断接收到的信息是否连接正确
 				if(receiveStr.equals("Successful")){
 					if(isDebug) System.out.println(TAG + ":conntection");
+					//连接成功发送1通知handler
 					message.what = 1;
 					myHandler.sendMessage(message);
 					return;
 				}
 				
 			}catch(Exception e){
+				//连接成功发送0通知handler
 				message.what = 0;
 				myHandler.sendMessage(message);
 				if(isDebug) System.out.println(TAG + ":connection fail");
@@ -73,11 +102,21 @@ public class SocketService extends Service {
 		}
 	}
 	
+	/**
+	 * 名称: SocketService.java
+	 * 描述: handler实现处理传过来的信息
+	 *
+	 * @author a_xiang
+	 * @version v1.0
+	 * @created 2015年2月4日
+	 */
 	@SuppressLint("HandlerLeak")
 	class MyHandler extends Handler{
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
+			
+			//根据接收到信息通过广播通知主线程UI
 			Intent intent = new Intent(AppConfig.RETURN_ACTION);
 			if(msg.what == 1){
 				intent.putExtra("result", true);
@@ -89,6 +128,9 @@ public class SocketService extends Service {
 		}
 	}
 
+	/**
+	 * service销毁炒作
+	 */
 	@Override
 	public void onDestroy() {
 		super.onDestroy();

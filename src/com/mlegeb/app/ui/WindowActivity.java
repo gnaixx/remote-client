@@ -9,7 +9,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
-
+/**
+ * 名称: WindowActivity.java
+ * 描述: 窗口页面
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class WindowActivity extends BaseActivity implements OnClickListener{
 
 	private ImageButton backBtn;

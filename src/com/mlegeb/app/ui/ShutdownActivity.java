@@ -15,6 +15,14 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
+/**
+ * 名称: ShutdownActivity.java
+ * 描述: 关机页面
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class ShutdownActivity extends BaseActivity implements OnClickListener{
 
 	private EditText command;

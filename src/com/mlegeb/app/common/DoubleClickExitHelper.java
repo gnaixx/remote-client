@@ -1,4 +1,4 @@
-package com.mlegeb.app.ui;
+package com.mlegeb.app.common;
 import com.mlegeb.app.AppManager;
 import com.mlegeb.app.R;
 
@@ -10,10 +10,12 @@ import android.widget.Toast;
 
 
 /**
- * 双击退出
- * 创建日期 2014-05-12
- * @author 火蚁 (http://my.oschina.net/LittleDY)
- * 
+ * 名称: DoubleClickExitHelper.java
+ * 描述: 双击退出
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
  */
 public class DoubleClickExitHelper {
 
@@ -46,7 +48,7 @@ public class DoubleClickExitHelper {
 		} else {
 			isOnKeyBacking = true;
 			if(mBackToast == null) {
-				mBackToast = Toast.makeText(mActivity, R.string.back_exit_tips, 2000);
+				mBackToast = Toast.makeText(mActivity, R.string.back_exit_tips, Toast.LENGTH_LONG);
 			}
 			mBackToast.show();
 			mHandler.postDelayed(onBackTimeRunnable, 2000);

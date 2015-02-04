@@ -10,8 +10,17 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
+/**
+ * 名称: MusicActivity.java
+ * 描述: 播放器页面
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class MusicActivity extends BaseActivity implements OnClickListener{
 
+	/** 播放器按钮 */
 	private ImageButton playBtn;
 	private ImageButton rewindBtn;
 	private ImageButton forwardBtn;

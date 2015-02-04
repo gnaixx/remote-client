@@ -6,6 +6,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * 名称: AboutActivity.java
+ * 描述: 关于页面
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class AboutActivity extends BaseActivity {
 
 	@Override

@@ -1,10 +1,5 @@
 package com.mlegeb.app.ui;
 
-
-
-
-
-
 import com.mlegeb.app.R;
 
 import android.app.Activity;
@@ -14,6 +9,14 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 
+/**
+ * 名称: GuideActivity.java
+ * 描述: 引导页面安装第一次显示
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class GuideActivity extends Activity {
 	private final int SPLASH_DISPLAY_LENGHT = 3000; // 延迟3秒  
 
@@ -26,6 +29,7 @@ public class GuideActivity extends Activity {
 	}
 
 	private void initView(){
+		//欢迎页显示3秒
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {

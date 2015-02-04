@@ -12,6 +12,14 @@ import android.os.Bundle;
 import android.os.Handler;
 
 
+/**
+ * 名称: WelcomeActivity.java
+ * 描述: 欢迎页面
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class WelcomeActivity extends Activity {
 	private final int SPLASH_DISPLAY_LENGHT = 2000; // 延迟3秒  
 	private final String SHARED_NAME = "bootsetting";

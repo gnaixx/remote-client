@@ -10,6 +10,14 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
+/**
+ * 名称: PowerPointActivity.java
+ * 描述: PPt页面
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class PowerPointActivity extends BaseActivity implements OnClickListener{
 
 	private ImageButton leftBtn;

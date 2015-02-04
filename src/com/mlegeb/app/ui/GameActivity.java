@@ -12,8 +12,17 @@ import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+/**
+ * 名称: GameActivity.java
+ * 描述: 手柄页面
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class GameActivity extends BaseActivity implements OnTouchListener{
 
+	/** 手柄按键 */
 	private ImageButton upBtn;
 	private ImageButton downBtn;
 	private ImageButton leftBtn;
@@ -24,7 +33,7 @@ public class GameActivity extends BaseActivity implements OnTouchListener{
 	private Button cBtn;
 	private Button dBtn;
 	
-	
+	/** 手柄信息传送类 */
 	private GameTransmission transmission;
 	
 	
@@ -38,6 +47,9 @@ public class GameActivity extends BaseActivity implements OnTouchListener{
 		initView();
 	}
 	
+	/**
+	 * 初始化变量
+	 */
 	private void initView(){
 		upBtn = (ImageButton) findViewById(R.id.imageButton1);
 		downBtn = (ImageButton) findViewById(R.id.imageButton2);
@@ -75,6 +87,9 @@ public class GameActivity extends BaseActivity implements OnTouchListener{
 		return super.onOptionsItemSelected(item);
 	}
 
+	/**
+	 * 触摸事件处理
+	 */
 	@SuppressLint("ClickableViewAccessibility")
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
@@ -109,6 +124,11 @@ public class GameActivity extends BaseActivity implements OnTouchListener{
 	}
 	
 	
+	/**
+	 * 判断触摸事件是按下/松开
+	 * @param type
+	 * @param event
+	 */
 	private void onControl(int type, MotionEvent event){
 		if(event.getAction() == MotionEvent.ACTION_DOWN){
 			transmission.sendGameButton("D"+type);

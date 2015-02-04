@@ -2,6 +2,7 @@ package com.mlegeb.app.ui;
 
 import com.mlegeb.app.AppConfig;
 import com.mlegeb.app.R;
+import com.mlegeb.app.common.DoubleClickExitHelper;
 import com.mlegeb.app.common.SavePreference;
 import com.mlegeb.app.server.SocketService;
 import com.mlegeb.app.transmission.CheckConnection;
@@ -18,15 +19,35 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * 名称: MainActivity.java
+ * 描述: 登入页面
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
 public class MainActivity extends BaseActivity implements OnClickListener{
 
+	/** 双击工具类 */
 	private DoubleClickExitHelper mDoubleClickExitHelper;
-
+	
+	/** 广播接收者*/
 	private ServerReceiver receiver;
+	
+	/** 连接按钮 */
 	private Button connBtn;
+	
+	/** 设置按钮 */
 	private Button settingsBtn;
+	
+	/** 关于页面 */
 	private Button aboutBtn;
+	
+	/** 输入框 */
 	private EditText serverIpEdit;
+	
+	/** IP地址 */
 	private String serverIpStr = "";
 
 	@Override
@@ -37,9 +58,13 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		mDoubleClickExitHelper = new DoubleClickExitHelper(this);
 
 		initViews();
+		//动态注册广播
 		registerServerReceiver();
 	}
 
+	/**
+	 * 初始化变量
+	 */
 	private void initViews(){
 		serverIpEdit = (EditText) findViewById(R.id.editText1);
 
@@ -54,6 +79,14 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		serverIpEdit.setText(SavePreference.getIpAddress(this));
 	}
 
+	/**
+	 * 名称: MainActivity.java
+	 * 描述: 广播接收者
+	 *
+	 * @author a_xiang
+	 * @version v1.0
+	 * @created 2015年2月4日
+	 */
 	private class ServerReceiver extends BroadcastReceiver{
 
 		@Override
@@ -63,7 +96,9 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 					Toast.makeText(MainActivity.this, "连接成功！", Toast.LENGTH_LONG).show();
 					AppConfig.conn_address = serverIpStr;
 					
+					//保存IP地址
 					SavePreference.saveIpAddress(MainActivity.this, serverIpStr);
+					//跳转到菜单页面
 					Intent intentAct = new Intent(MainActivity.this, MenuActivity.class);
 					MainActivity.this.startActivity(intentAct);
 				}
@@ -74,6 +109,10 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		}
 
 	}
+	
+	/**
+	 * 注册广播
+	 */
 	private void registerServerReceiver(){
 		IntentFilter filter = new IntentFilter(AppConfig.RETURN_ACTION);
 		receiver = new ServerReceiver();
@@ -88,20 +127,15 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			// 是否退出应用
 			return mDoubleClickExitHelper.onKeyDown(keyCode, event);
-		} else if (keyCode == KeyEvent.KEYCODE_MENU) {
-			//			// 展示快捷栏&判断是否登录
-			//			UIHelper.showSettingLoginOrLogout(Main.this,
-			//					mGrid.getQuickAction(0));
-			//			mGrid.show(fbSetting, true);
-			//		} else if (keyCode == KeyEvent.KEYCODE_SEARCH) {
-			//			// 展示搜索页
-			//			UIHelper.showSearch(Main.this);
-		} else {
+		}else {
 			flag = super.onKeyDown(keyCode, event);
 		}
 		return flag;
 	}
-
+	
+	/**
+	 * 点击事件
+	 */
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {  
@@ -119,11 +153,17 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	}
 
 
+	/**
+	 * 跳转到设置页面
+	 */
 	private void settingEvent(){
 		Intent intent = new Intent(this, SettingActivity.class);
 		this.startActivity(intent);
 	}
 
+	/**
+	 * 开启服务监听UDP，发送连接请求
+	 */
 	private void connectionEvent(){
 		
 		serverIpStr = serverIpEdit.getText().toString();
@@ -137,6 +177,9 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 
 	}
 
+	/**
+	 * 跳转到相关页面
+	 */
 	private void aboutEvent(){
 		Intent intent = new Intent(this, AboutActivity.class);
 		this.startActivity(intent);

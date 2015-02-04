@@ -7,9 +7,12 @@ import android.app.ActivityManager;
 import android.content.Context;
 
 /**
- * 应用程序Activity管理类：用于Activity管理和应用程序退出 
- * @author Mine
+ * 名称: AppManager.java
+ * 描述: 应用程序Activity管理类：用于Activity管理和应用程序退出 
  *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
  */
 public class AppManager {
 	private static Stack<Activity> activityStack;

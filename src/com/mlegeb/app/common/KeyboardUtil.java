@@ -1,11 +1,6 @@
 package com.mlegeb.app.common;
 
 import java.util.List;
-
-
-
-
-
 import com.mlegeb.app.AppConfig;
 import com.mlegeb.app.R;
 import com.mlegeb.app.transmission.KeyboardTransmission;
@@ -21,19 +16,52 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+/**
+ * 名称: KeyboardUtil.java
+ * 描述: 自定义键盘工具类
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
+ */
+
 @SuppressLint("DefaultLocale")
 public class KeyboardUtil {
+	/** 上下文 */
 	private Context myContext;
-	private Activity myActivity;
-	private KeyboardView keyboardView;
-	private Keyboard key_english;// 字母键盘
-	private Keyboard symbols,symbols_shift;// 数字键盘及第二个菜单
-	public boolean isnun = false;// 是否数据键盘
-	public boolean isupper = false;// 是否大写
 
+	/** 调用者activity */
+	private Activity myActivity;
+
+	/** 键盘View */
+	private KeyboardView keyboardView;
+
+	/** 字母键盘 */
+	private Keyboard key_english;
+
+	/**  数字键盘及第二个菜单 */
+	private Keyboard symbols,symbols_shift;
+
+	/** 是否数据键盘 */
+	public boolean isnun = false;
+
+	/** 是否大写 */
+	public boolean isupper = false;
+
+	/** 输入显示EditText */
 	private EditText ed;
+
+	/**  键盘信息传送类 */
 	private KeyboardTransmission transmission;
 
+
+	/**
+	 * 构造函数初始化成员变量
+	 * @param activity 调用者activity
+	 * @param context 上下文
+	 * @param editText 用于显示输入
+	 * @param mtransmission 信息传送类
+	 */
 	public KeyboardUtil(Activity activity, 
 			Context context, 
 			EditText editText,
@@ -54,6 +82,9 @@ public class KeyboardUtil {
 		keyboardView.setOnKeyboardActionListener(listener);
 	}
 
+	/**
+	 * 键盘事件监听器
+	 */
 	private OnKeyboardActionListener listener = new OnKeyboardActionListener() {
 		@Override
 		public void swipeUp() {
@@ -83,6 +114,9 @@ public class KeyboardUtil {
 		public void onPress(int primaryCode) {
 		}
 
+		/**
+		 * 点击键盘事件
+		 */
 		@Override
 		public void onKey(int primaryCode, int[] keyCodes) {
 			Editable editable = ed.getText();
@@ -128,6 +162,7 @@ public class KeyboardUtil {
 				}
 			}
 			else {
+				//普通字母键
 				editable.insert(start, Character.toString((char) primaryCode));
 				Log.i("YUNCUNCHU",
 						primaryCode + "|||"
@@ -168,7 +203,9 @@ public class KeyboardUtil {
 		}
 	}
 
-	// 显示键盘
+	/**
+	 * 显示键盘
+	 */
 	public void showKeyboard() {
 		int visibility = keyboardView.getVisibility();
 		if (visibility == View.GONE || visibility == View.INVISIBLE) {
@@ -176,7 +213,9 @@ public class KeyboardUtil {
 		}
 	}
 
-	// 隐藏键盘
+	/**
+	 * 隐藏键盘
+	 */
 	public void hideKeyboard() {
 		int visibility = keyboardView.getVisibility();
 		if (visibility == View.VISIBLE) {
@@ -184,6 +223,11 @@ public class KeyboardUtil {
 		}
 	}
 
+	/**
+	 * 判断是否输入的为字母
+	 * @param str
+	 * @return
+	 */
 	private boolean isword(String str) {
 		String wordstr = "abcdefghijklmnopqrstuvwxyz";
 		if (wordstr.indexOf(str.toLowerCase()) > -1) {

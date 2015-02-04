@@ -2,11 +2,13 @@ package com.mlegeb.app;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 /**
- * 应用程序配置类：用于保存用户相关信息及设置
- * @author Mine
+ * 名称: AppConfig.java
+ * 描述: 应用程序配置类-用于保存用户相关信息及设置
  *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
  */
 public class AppConfig {
 
@@ -26,9 +28,16 @@ public class AppConfig {
 	
 	public static String conn_address = "";    
 	
+	@SuppressWarnings("unused")
 	private Context mContext;
 	private static AppConfig appConfig;
 
+	
+	/**
+	 * 单例模式
+	 * @param context
+	 * @return
+	 */
 	public static AppConfig getAppConfig(Context context) {
 		if (appConfig == null) {
 			appConfig = new AppConfig();

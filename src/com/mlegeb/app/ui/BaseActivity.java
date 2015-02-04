@@ -6,13 +6,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-
 /**
- * 应用程序Activity的基类
- * 
- * @author liux (http://my.oschina.net/liux)
- * @version 1.0
- * @created 2012-9-18
+ * 名称: BaseActivity.java
+ * 描述: Activity基类
+ *
+ * @author a_xiang
+ * @version v1.0
+ * @created 2015年2月4日
  */
 public class BaseActivity extends Activity {
 
@@ -40,6 +40,10 @@ public class BaseActivity extends Activity {
 		AppManager.getAppManager().finishActivity(this);
 	}
 
+	/**
+	 * 查看是否全屏
+	 * @return
+	 */
 	public boolean isAllowFullScreen() {
 		return allowFullScreen;
 	}
