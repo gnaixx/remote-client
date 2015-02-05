@@ -15,7 +15,10 @@ public class AppConfig {
 	public final static int LISTENER_PORT = 7590;
 	public final static String CONNECTION_STR = "link";
 	public final static String RETURN_ACTION = "com.mlegeb.socket";
-	public final static String IP_DATA = "perf_ipaddress";
+	public final static String PREF_DATA = "pref_data";
+	public final static String FIRST_START = "first_start";
+	public final static String IP_ADDR = "ip_addr";
+	public final static String DEF_IP_ADDR = "192.168.6.114";
 	
 	public final static int INIT_STATE     = 0;  //初始化
 	public final static int GAME_STATE     = 1;  //手柄模式

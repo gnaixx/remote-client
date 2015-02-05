@@ -1,7 +1,7 @@
 package com.mlegeb.app.ui;
 
 import com.mlegeb.app.R;
-import com.mlegeb.app.common.MouseManager;
+import com.mlegeb.app.common.MouseUtil;
 import com.mlegeb.app.transmission.ShutdownTransmission;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -32,14 +32,14 @@ public class ShutdownActivity extends BaseActivity implements OnClickListener{
 	private ShutdownTransmission transmission;
 	private LinearLayout mousePanel;
 	
-	private MouseManager mouseManager;
+	private MouseUtil mouseManager;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_shut_down);
 		
 		transmission = new ShutdownTransmission();
-		mouseManager = new MouseManager();
+		mouseManager = new MouseUtil();
 		InitView();
 	}
 	

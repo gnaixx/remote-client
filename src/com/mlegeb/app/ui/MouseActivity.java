@@ -1,7 +1,7 @@
 package com.mlegeb.app.ui;
 
 import com.mlegeb.app.R;
-import com.mlegeb.app.common.MouseManager;
+import com.mlegeb.app.common.MouseUtil;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,7 +22,7 @@ import android.widget.FrameLayout;
 public class MouseActivity extends BaseActivity {
 	
 	/** 鼠标管理工具 类*/
-	private MouseManager mouseManager;
+	private MouseUtil mouseManager;
 	
 	/** 触摸区域 */
 	private FrameLayout touchPanel;
@@ -35,7 +35,7 @@ public class MouseActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mouse);
-		mouseManager = new MouseManager();
+		mouseManager = new MouseUtil();
 		
 		initView();
 	}

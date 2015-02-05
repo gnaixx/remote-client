@@ -12,7 +12,7 @@ import android.view.MotionEvent;
  * @version v1.0
  * @created 2015年2月4日
  */
-public class MouseManager {
+public class MouseUtil {
 
 	private static float mx = 0; // 发送的鼠标移动的差值
 	private static float my = 0;
@@ -27,7 +27,7 @@ public class MouseManager {
 	
 	private MouseTransmission transmission;
 	
-	public MouseManager(){
+	public MouseUtil(){
 		transmission = new MouseTransmission();
 	}
 
