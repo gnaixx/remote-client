@@ -3,6 +3,8 @@ package com.mlegeb.app.ui;
 
 import com.mlegeb.app.AppConfig;
 import com.mlegeb.app.R;
+import com.mlegeb.app.common.SettingsUtil;
+import com.mlegeb.app.common.ViewUtil;
 import com.mlegeb.app.transmission.SendState;
 
 import android.content.Intent;
@@ -32,6 +34,7 @@ public class MenuActivity extends BaseActivity implements OnClickListener{
 	private ImageButton moreBtn;
 	
 	private SendState sendState;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -110,5 +113,26 @@ public class MenuActivity extends BaseActivity implements OnClickListener{
 			break;
 		}
 		
+	}
+	
+	/**
+	 * 第一次运行时调用
+	 */
+	@Override
+	public void onWindowFocusChanged(boolean hasFocus) {
+		super.onWindowFocusChanged(hasFocus);
+		boolean isFirst = 
+				Boolean.valueOf(SettingsUtil.getPref(MenuActivity.this,
+						AppConfig.FIRST_START_PAGE_2, true));
+		if(isFirst){
+			Intent intent = new Intent(MenuActivity.this, GuideActivity.class);
+			intent.putExtra("ArrayPoints",
+					ViewUtil.guidePoints(mouseBtn));
+			startActivity(intent);
+			//将登录标志位设置为false，下次登录时不在显示首次登录界面  
+			SettingsUtil.savePref(MenuActivity.this, 
+					AppConfig.FIRST_START_PAGE_2, false);
+			isFirst = false;
+		}
 	}
 }

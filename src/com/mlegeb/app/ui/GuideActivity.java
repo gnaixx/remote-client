@@ -30,6 +30,13 @@ public class GuideActivity extends Activity {
 	
 		setContentView(guideView);
 		
+		
+	
+	}
+	
+	@Override
+	protected void onResume() {
+		
 		try {
 			String str = 
 					getIntent().getStringExtra("ArrayPoints");
@@ -38,7 +45,7 @@ public class GuideActivity extends Activity {
 			if(LogUtil.D) LogUtil.d(getClass(), "Intent-Str-JSONArray：失败！");
 			e.printStackTrace();
 		}
-	
+		super.onResume();
 	}
 	
 }

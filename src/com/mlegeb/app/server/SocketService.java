@@ -3,7 +3,10 @@ package com.mlegeb.app.server;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
+
 import com.mlegeb.app.AppConfig;
+import com.mlegeb.app.common.LogUtil;
+
 import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Intent;
@@ -22,11 +25,6 @@ import android.widget.Toast;
  */
 public class SocketService extends Service {
 	
-	/** Log标签 */
-	private final static String TAG = "soketService";
-	
-	/** Log开关 */
-	private final static boolean isDebug = true;
 
 	/** UDP传输协议 */
 	private DatagramSocket inSocket;
@@ -82,10 +80,10 @@ public class SocketService extends Service {
 				SocketService.this.inSocket.setSoTimeout(2000);
 				SocketService.this.inSocket.receive(op);
 				String receiveStr = new String(buf).trim();
-				if(isDebug) System.out.println(TAG + receiveStr);
+				if(LogUtil.D) LogUtil.d(getClass(),  receiveStr);
 				//判断接收到的信息是否连接正确
 				if(receiveStr.equals("Successful")){
-					if(isDebug) System.out.println(TAG + ":conntection");
+					if(LogUtil.D) LogUtil.d(getClass(),  "Connection:Successful");
 					//连接成功发送1通知handler
 					message.what = 1;
 					myHandler.sendMessage(message);
@@ -96,7 +94,7 @@ public class SocketService extends Service {
 				//连接成功发送0通知handler
 				message.what = 0;
 				myHandler.sendMessage(message);
-				if(isDebug) System.out.println(TAG + ":connection fail");
+				if(LogUtil.D) LogUtil.d(getClass(),  "Connection:Fail");
 				e.printStackTrace();
 			}
 		}
@@ -134,7 +132,7 @@ public class SocketService extends Service {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		if(isDebug) System.out.println(TAG + ":destroy");
+		if(LogUtil.D) LogUtil.d(getClass(),  "Destroy");
 		this.inSocket.close();
 	}
 }

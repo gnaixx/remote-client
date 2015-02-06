@@ -16,20 +16,23 @@ import com.mlegeb.app.common.LogUtil;
  */
 public class FocusPoint {
 
-	public int x;			//x轴坐标
-	public int y;			//y轴坐标
+	public int x;		//x轴坐标
+	public int y;		//y轴坐标
 	public int h;		//高度
 	public int w;		//宽度
+	
+	public String msg;  //显示文本
 
 	public FocusPoint(){
 		
 	}
 
-	public FocusPoint(int x, int y, int h, int w){
+	public FocusPoint(int x, int y, int h, int w, String msg){
 		this.x = x;
 		this.y = y;
 		this.w = w;
 		this.h = y;
+		this.msg = msg;
 	}
 
 	/**
@@ -46,6 +49,7 @@ public class FocusPoint {
 				json.put("y", points[i].y);
 				json.put("w", points[i].w);
 				json.put("h", points[i].h);
+				json.put("msg", points[i].msg);
 			} catch (JSONException e) {
 				LogUtil.d(FocusPoint.class, "bean-json:失败！");
 				e.printStackTrace();
@@ -77,6 +81,7 @@ public class FocusPoint {
 				point.y = arrayJson.getJSONObject(i).getInt("y");
 				point.w = arrayJson.getJSONObject(i).getInt("w");
 				point.h = arrayJson.getJSONObject(i).getInt("h");
+				point.msg = arrayJson.getJSONObject(i).getString("msg");
 				points[i] = point;
 				
 			} catch (JSONException e) {

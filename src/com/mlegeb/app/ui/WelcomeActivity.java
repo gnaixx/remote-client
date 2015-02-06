@@ -2,7 +2,9 @@ package com.mlegeb.app.ui;
 
 
 
+import com.mlegeb.app.AppConfig;
 import com.mlegeb.app.R;
+import com.mlegeb.app.common.SettingsUtil;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -31,7 +33,8 @@ public class WelcomeActivity extends Activity {
 	}
 
 	private void ViewInit(){
-
+		
+		AppConfig.mouseSensibility = Integer.valueOf(SettingsUtil.getPref(this, AppConfig.MOUSE_SENSI, 1));
 
 		new Handler().postDelayed(new Runnable() {
 			@Override

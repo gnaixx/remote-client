@@ -16,9 +16,12 @@ public class AppConfig {
 	public final static String CONNECTION_STR = "link";
 	public final static String RETURN_ACTION = "com.mlegeb.socket";
 	public final static String PREF_DATA = "pref_data";
-	public final static String FIRST_START = "first_start";
+	public final static String FIRST_START_PAGE_1 = "first_start_1";
+	public final static String FIRST_START_PAGE_2 = "first_start_2";
 	public final static String IP_ADDR = "ip_addr";
 	public final static String DEF_IP_ADDR = "192.168.6.114";
+	public final static String MOUSE_SENSI = "mouse_sensi";
+	
 	
 	public final static int INIT_STATE     = 0;  //初始化
 	public final static int GAME_STATE     = 1;  //手柄模式
@@ -30,6 +33,7 @@ public class AppConfig {
 	public final static int WINDOW_STATE   = 7;  //窗口模式
 	
 	public static String conn_address = "";    
+	public static int mouseSensibility = 1;
 	
 	@SuppressWarnings("unused")
 	private Context mContext;
