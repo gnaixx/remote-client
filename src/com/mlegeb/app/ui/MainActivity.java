@@ -5,9 +5,9 @@ import java.util.Map;
 
 import com.mlegeb.app.AppConfig;
 import com.mlegeb.app.R;
-import com.mlegeb.app.bean.FocusPoint;
 import com.mlegeb.app.common.DoubleClickExitHelper;
 import com.mlegeb.app.common.SettingsUtil;
+import com.mlegeb.app.common.ViewUtil;
 import com.mlegeb.app.server.SocketService;
 import com.mlegeb.app.transmission.CheckConnection;
 
@@ -53,6 +53,8 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	
 	/** IP地址 */
 	private String serverIpStr = "";
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -198,41 +200,18 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		super.onWindowFocusChanged(hasFocus);
 		boolean isFirst = 
 				Boolean.valueOf(SettingsUtil.getPref(MainActivity.this,
-						AppConfig.FIRST_START, true));
+						AppConfig.FIRST_START_PAGE_1, true));
 		if(isFirst){
 			Intent intent = new Intent(MainActivity.this, GuideActivity.class);
 			intent.putExtra("ArrayPoints",
-					guidePoints(serverIpEdit));
+					ViewUtil.guidePoints(serverIpEdit));
 			startActivity(intent);
-			Toast.makeText(MainActivity.this, 
-					guidePoints(serverIpEdit), 
-					Toast.LENGTH_LONG).show();
 			//将登录标志位设置为false，下次登录时不在显示首次登录界面  
-//			SettingsUtil.savePref(MainActivity.this, 
-//					AppConfig.FIRST_START, false);
+			SettingsUtil.savePref(MainActivity.this, 
+					AppConfig.FIRST_START_PAGE_1, false);
+			isFirst = false;
 		}
 	}
 	
-	/**
-	 * 获取焦点位置的坐标，长宽
-	 * @param views
-	 * @return
-	 */
-	private String guidePoints(View... views){
-		FocusPoint[] points = new FocusPoint[views.length];
-		int[] position  = new int[2];
-		int w, h;
-		for(int i=0; i<views.length; i++){
-			FocusPoint point = new FocusPoint();
-			views[i].getLocationOnScreen(position);
-			w = views[i].getWidth();
-			h = views[i].getHeight();
-			point.x = position[0] + w/2;
-			point.y = position[1] + h/2;
-			point.w = w;
-			point.h = h;
-			points[i] = point;	
-		}
-		return FocusPoint.toString(points);
-	}
+	
 }

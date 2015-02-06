@@ -33,7 +33,8 @@
         <activity
             android:name="com.mlegeb.app.ui.GuideActivity"
             android:label="@string/title_activity_guide"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
         <activity
             android:name="com.mlegeb.app.ui.SettingActivity"
