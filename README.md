@@ -20,7 +20,7 @@ Android“无线主机控制器”,利用无线通过UDP协议传输数据，从
 **操作过程**
 ---
 **1. 安装：**
-　　使用adb安装：利用adb连接PC与Android设备，通过shell命令：`adb install ~/APPClient.apk`（"~/"为app当前所在的相对路径）安装app。
+　　使用adb安装：利用adb连接PC与Android设备，通过shell命令：`adb install ~/APPClient.apk`（"~/"为app当前所在的相对路径）安装app。  
 　　通过第三方软件安装，如豌豆荚，91助手等。
 
 **2. 连接：**
