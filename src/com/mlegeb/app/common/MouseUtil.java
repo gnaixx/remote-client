@@ -1,5 +1,6 @@
 package com.mlegeb.app.common;
 
+import com.mlegeb.app.AppConfig;
 import com.mlegeb.app.transmission.MouseTransmission;
 
 import android.view.MotionEvent;
@@ -46,7 +47,8 @@ public class MouseUtil {
 		my = y -ly;
 		ly = y;
 		if(mx!=0 && my!=0){
-			transmission.sendMousePoint(mx, my);
+			int xx = AppConfig.mouseSensibility / 10;
+			transmission.sendMousePoint(mx*xx, my*xx);
 		}
 	}
 	

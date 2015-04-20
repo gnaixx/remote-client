@@ -46,8 +46,7 @@ public class SettingsUtil {
 	public static String getPref(Context context, String key, Object defValue){
 		String value = null;
 		SharedPreferences shared = AppConfig.getSharedPrefernces(context, AppConfig.PREF_DATA);
-		LogUtil.d(context,"读取成功！");
-		
+		LogUtil.d(context,"读取成功！");	
 		value = shared.getString(key, defValue.toString());
 		return value;
 	}

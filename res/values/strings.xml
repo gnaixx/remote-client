@@ -18,15 +18,30 @@
     <!-- 欢迎页 -->
     <string name="welcome_str">欢迎使用无线控制器</string>
     <string name="hello_world">更多功能尚待开发！</string>
-    <string name="about_str">本次APP所有权归MLGB所有</string>
+    
+    <!-- 设置页面 -->
+    <string name="settings_title">应用设置</string>
+    <string name="settings_mouse">鼠标灵敏度: </string>
     
     <!-- 关机页 -->
     <string name="shutdown_send_btn">发送</string>
     <string name="shutdown_title_text">CMD命令</string>
     <string name="shutdown_title_str">鼠标热区</string>
     
-    
     <!-- 窗口页 -->
     <string name="window_title_str">窗口操作及切换</string>
+    
+    <!-- 关于页面 -->
+    <string name="about_title_1">关于</string>
+    <string name="about_title_content_1">让手机成为电脑的遥控器\n\n版本：V1.0\n作者：a_xiang</string>
+    <string name="about_title_2">使用方法</string>
+    <string name="about_title_content_2">
+        1) 在PC电脑上下载运行PCService\n
+        2) 确保您的PC电脑与手机在同一个WIFI网络\n
+        3) 确保PCService没有被防火墙拦截\n
+        4) 如果您的WIFI路由器支持AP隔离，请禁用该功能\n
+        5) 输入PC端IP后点击连接\n
+        6) 现在您能控制PC电脑了</string>
+        
 
 </resources>

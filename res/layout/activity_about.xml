@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -6,11 +6,35 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.mlegeb.app.ui.AboutActivity" >
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about_str" />
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:text="@string/about_title_1" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="120dp"
+        android:text="@string/about_title_content_1" />
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:text="@string/about_title_2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="@string/about_title_content_2" />
+    
+
+</LinearLayout>

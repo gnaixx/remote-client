@@ -42,19 +42,20 @@ public class SettingActivity extends BaseActivity {
 			public void onProgressChanged(SeekBar seekBar, int progress,
 					boolean fromUser) {
 				mouseProgress = progress;
-				if(LogUtil.D) LogUtil.d(SettingActivity.this, String.valueOf(mouseProgress));
+				AppConfig.mouseSensibility = progress;
+				 LogUtil.d(SettingActivity.this, String.valueOf(mouseProgress));
 				
 			}
 
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
-				if(LogUtil.D) LogUtil.d(SettingActivity.this, "progressStartTrackingTouch");
+				 LogUtil.d(SettingActivity.this, "progressStartTrackingTouch");
 			}
 
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				SettingsUtil.savePref(SettingActivity.this, AppConfig.MOUSE_SENSI, mouseProgress);
-				if(LogUtil.D) LogUtil.d(SettingActivity.this, "progressStopTrackingTouch");
+				LogUtil.d(SettingActivity.this, "progressStopTrackingTouch");
 			}
 			
 		});

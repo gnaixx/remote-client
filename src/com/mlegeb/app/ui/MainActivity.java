@@ -6,6 +6,7 @@ import java.util.Map;
 import com.mlegeb.app.AppConfig;
 import com.mlegeb.app.R;
 import com.mlegeb.app.common.DoubleClickExitHelper;
+import com.mlegeb.app.common.LogUtil;
 import com.mlegeb.app.common.SettingsUtil;
 import com.mlegeb.app.common.ViewUtil;
 import com.mlegeb.app.server.SocketService;
@@ -67,6 +68,13 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		//动态注册广播
 		registerServerReceiver();
 	}
+	
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		//注销广播
+		this.unregisterReceiver(receiver);
+	}
 
 	/**
 	 * 初始化变量
@@ -82,7 +90,12 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		settingsBtn.setOnClickListener(this);
 		aboutBtn.setOnClickListener(this);
 		
+		//读取保存的IP地址
 		serverIpEdit.setText(SettingsUtil.getPref(this, AppConfig.IP_ADDR, AppConfig.DEF_IP_ADDR).toString());
+		
+		//读取保存的鼠标灵敏度
+		AppConfig.mouseSensibility = Integer.parseInt(SettingsUtil.getPref(this, AppConfig.MOUSE_SENSI, 1));
+		LogUtil.d("TTTTTT", AppConfig.mouseSensibility+"");
 	}
 
 	/**
@@ -103,8 +116,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 					AppConfig.conn_address = serverIpStr;
 					
 					//保存IP地址
-					Map<String, String> map = new HashMap<String, String>();
-					SettingsUtil.savePref(MainActivity.this, map);
+					SettingsUtil.savePref(MainActivity.this, AppConfig.IP_ADDR, AppConfig.conn_address);
 					//跳转到菜单页面
 					Intent intentAct = new Intent(MainActivity.this, MenuActivity.class);
 					MainActivity.this.startActivity(intentAct);
