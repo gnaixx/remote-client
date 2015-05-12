@@ -3,7 +3,6 @@ package com.mlegeb.app.common;
 import android.view.View;
 
 import com.mlegeb.app.R;
-import com.mlegeb.app.bean.FocusPoint;
 
 /**
  * 名称: ViewUtil.java

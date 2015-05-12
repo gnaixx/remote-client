@@ -2,7 +2,7 @@ package com.mlegeb.app.ui;
 
 
 
-import com.mlegeb.app.bean.FocusPoint;
+import com.mlegeb.app.common.FocusPoint;
 import com.mlegeb.app.common.LogUtil;
 import com.mlegeb.app.widget.GuideView;
 

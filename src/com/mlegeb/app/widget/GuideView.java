@@ -1,7 +1,7 @@
 package com.mlegeb.app.widget;
 
 import com.mlegeb.app.R;
-import com.mlegeb.app.bean.FocusPoint;
+import com.mlegeb.app.common.FocusPoint;
 import com.mlegeb.app.common.LogUtil;
 
 import android.annotation.SuppressLint;

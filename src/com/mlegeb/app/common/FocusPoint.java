@@ -1,10 +1,8 @@
-package com.mlegeb.app.bean;
+package com.mlegeb.app.common;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.mlegeb.app.common.LogUtil;
 
 /**
  * 名称: FocusPoint.java
