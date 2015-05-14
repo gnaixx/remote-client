@@ -38,7 +38,6 @@ public class MouseUtil {
 	 * @param event
 	 */
 	public void onMouseMove(MotionEvent event){
-
 		float x = event.getX();
 		mx = x - lx;
 		lx = x;
@@ -57,8 +56,6 @@ public class MouseUtil {
 	 * @param event
 	 */
 	public void onMouseDown(MotionEvent event){
-
-
 		lx = event.getX(); // 当手机第一放入时 把当前坐标付给lx
 		ly = event.getY();
 		fx = event.getX();
@@ -70,13 +67,11 @@ public class MouseUtil {
 	 * @param event
 	 */
 	public void onMouseUp(MotionEvent event){
-
 		//没有移动为点击事件
 		if (fx == event.getX() && fy == event.getY()) {
 			transmission.sendMouseButton(1);
 		}
 	}
-	
 	
 	/**
 	 * 点击鼠标左右键

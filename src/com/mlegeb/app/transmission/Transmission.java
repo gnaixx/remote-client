@@ -6,7 +6,9 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 
+
 import com.mlegeb.app.AppConfig;
+import com.mlegeb.app.common.LogUtil;
 
 /**
  * 名称: Transmission.java
@@ -41,7 +43,7 @@ public class Transmission {
 		try {
 			ipAddress = InetAddress.getByName(ip);
 			socket = new DatagramSocket();
-			if(isDebug)	System.out.println(TAG + ":初始化");
+			if(isDebug)	System.out.println(TAG + ":初始化Socket");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -77,9 +79,10 @@ public class Transmission {
 			packet = new DatagramPacket(data, data.length, ipAddress, AppConfig.LISTENER_PORT);
 			try {
 				socket.send(packet);
-				if(isDebug)	System.out.println(TAG + ":发送成功");
+				//if(isDebug)	System.out.println(TAG + ":发送成功");
+				LogUtil.d(this.getClass(), "发送数据：" + msg);
 			} catch (IOException e) {
-				if(isDebug)	System.out.println(TAG + ":发送失败");
+				//if(isDebug)	System.out.println(TAG + ":发送失败");
 				e.printStackTrace();
 			}
 		}

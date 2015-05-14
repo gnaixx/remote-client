@@ -53,7 +53,6 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 	
 	/** 屏幕高度 */
 	private int screenH;
-
 	
 	/** 焦点坐标对象 */
 	private FocusPoint[] points;
@@ -68,10 +67,6 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 	private Paint paint;
 	
 	private Paint paints;
-	
-
-	
-	
 	
 	public GuideView(Context context){
 		this(context, null);
@@ -96,7 +91,6 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 		holder.addCallback(this);
 		getHolder().setFormat(PixelFormat.TRANSLUCENT);
 	} 
-	
 	
 	public void setFocusPoints(FocusPoint[] points){
 		this.setVisibility(View.VISIBLE);
@@ -139,14 +133,12 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 		return super.onTouchEvent(event);
 	}
 	
-	
 	private void doDraw(int step){
 		//获取锁定的画布
 		Canvas canvas = getHolder().lockCanvas();
 		//设置半透明，
 		canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
 		Rect srcBg = new Rect(0, 0, bg.getWidth(), bg.getHeight());
-		
 		
 		if(step < this.points.length){
 			int left = (int)(points[step].x - points[step].w/10*7);
@@ -170,28 +162,13 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 			canvas.drawBitmap(bg, srcBg, dstRight, null);
 			canvas.drawBitmap(bg, srcBg, dstBottom, null);
 			
-			
 			paints.setColor(Color.WHITE);
 			paints.setTextSize(20);
 			paints.setAntiAlias(true);
 			paints.setTextAlign(Align.CENTER);
 			canvas.drawText(points[step].msg, points[step].x, bottom+100, paints);
-			switch (step) {
-			case 0:
-				// first to do something
-				break;
-			case 1:
-				// second to do something
-				break;
-			case 2:
-				// third to do something
-				break;
-			default:
-				break;
-			}
 		}
 		this.step++;
 		getHolder().unlockCanvasAndPost(canvas);
 	}
-
 }

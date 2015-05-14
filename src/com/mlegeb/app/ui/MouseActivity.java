@@ -43,7 +43,6 @@ public class MouseActivity extends BaseActivity {
 	
 	private void initView(){
 		touchPanel = (FrameLayout) findViewById(R.id.touch_panel);
-		
 		//触摸事件处理
 		touchPanel.setOnTouchListener(new View.OnTouchListener() {
 			@SuppressLint("ClickableViewAccessibility")

@@ -30,7 +30,7 @@ public class SettingsUtil {
 		    edit.putString((String)entry.getKey(), (String)entry.getValue());
 		}
 		edit.commit();
-		LogUtil.d(context, "保存成功！");
+		LogUtil.d(context, "配置信息保存成功！");
 	}
 	
 	/** 保存配置信息 -单条*/
@@ -39,14 +39,14 @@ public class SettingsUtil {
 		Editor edit = shared.edit();
 		edit.putString(key, value.toString());
 		edit.commit();
-		LogUtil.d(context, "保存成功！");
+		LogUtil.d(context, "配置信息保存成功！");
 	}
 	
 	/** 读取配置信息 */
 	public static String getPref(Context context, String key, Object defValue){
 		String value = null;
 		SharedPreferences shared = AppConfig.getSharedPrefernces(context, AppConfig.PREF_DATA);
-		LogUtil.d(context,"读取成功！");	
+		LogUtil.d(context,"配置信息读取成功！");	
 		value = shared.getString(key, defValue.toString());
 		return value;
 	}

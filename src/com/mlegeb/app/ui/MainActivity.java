@@ -1,5 +1,7 @@
 package com.mlegeb.app.ui;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -95,7 +97,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		
 		//读取保存的鼠标灵敏度
 		AppConfig.mouseSensibility = Integer.parseInt(SettingsUtil.getPref(this, AppConfig.MOUSE_SENSI, 1));
-		LogUtil.d("TTTTTT", AppConfig.mouseSensibility+"");
+		
 	}
 
 	/**
@@ -107,7 +109,6 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	 * @created 2015年2月4日
 	 */
 	private class ServerReceiver extends BroadcastReceiver{
-
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			if(intent.getAction().equals(AppConfig.RETURN_ACTION)){
@@ -126,7 +127,6 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 				}
 			}
 		}
-
 	}
 	
 	/**
@@ -186,13 +186,22 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	private void connectionEvent(){
 		
 		serverIpStr = serverIpEdit.getText().toString();
-		
-		//开启服务  监听端口
-		Intent intentService = new Intent(this, SocketService.class);
-		this.startService(intentService);
+		long time  = System.currentTimeMillis();
+		try {
+			InetAddress.getByName(serverIpStr);
+			
+			//开启服务  监听端口
+			Intent intentService = new Intent(this, SocketService.class);
+			this.startService(intentService);
 
-		CheckConnection check = new CheckConnection(serverIpStr);
-		check.sendCheck(AppConfig.CONNECTION_STR);
+			CheckConnection check = new CheckConnection(serverIpStr);
+			check.sendCheck(AppConfig.CONNECTION_STR);
+			
+		} catch (Exception e) {
+			Toast.makeText(MainActivity.this, "IP地址格式错误", Toast.LENGTH_LONG).show();
+			//e.printStackTrace();
+		}
+		
 
 	}
 

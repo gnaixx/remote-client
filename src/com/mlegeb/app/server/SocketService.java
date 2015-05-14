@@ -80,10 +80,10 @@ public class SocketService extends Service {
 				SocketService.this.inSocket.setSoTimeout(2000);
 				SocketService.this.inSocket.receive(op);
 				String receiveStr = new String(buf).trim();
-				if(LogUtil.D) LogUtil.d(getClass(),  receiveStr);
+				LogUtil.d(getClass(),  "反馈数据：" + receiveStr);
 				//判断接收到的信息是否连接正确
 				if(receiveStr.equals("Successful")){
-					if(LogUtil.D) LogUtil.d(getClass(),  "Connection:Successful");
+					LogUtil.d(getClass(),  "Android客户端连接成功");
 					//连接成功发送1通知handler
 					message.what = 1;
 					myHandler.sendMessage(message);
@@ -94,8 +94,9 @@ public class SocketService extends Service {
 				//连接成功发送0通知handler
 				message.what = 0;
 				myHandler.sendMessage(message);
-				if(LogUtil.D) LogUtil.d(getClass(),  "Connection:Fail");
-				e.printStackTrace();
+				LogUtil.d(getClass(),  "IP地址请求超时，连接失败！");
+				
+				//e.printStackTrace();
 			}
 		}
 	}
