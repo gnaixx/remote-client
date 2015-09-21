@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">无线控制器</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_welcome">无线控制器</string>
+    <string name="title_activity_guide">引导页</string>
+    <string name="main_str">主页</string>
+    <string name="guide_str">欢迎使用无线控制器</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="back_exit_tips">再按一次退出</string>
+
+    <!-- 主页 -->
+    <string name="main_app_name">WIFI  Control</string>
+    <string name="main_defult_ip">192.168.1.100</string>
+    <string name="main_connection">连接</string>
+
+    <!-- 欢迎页 -->
+    <string name="welcome_str">欢迎使用无线控制器</string>
+    <string name="hello_world">更多功能尚待开发！</string>
+    
+    <!-- 设置页面 -->
+    <string name="settings_title">应用设置</string>
+    <string name="settings_mouse">鼠标灵敏度: </string>
+    
+    <!-- 关机页 -->
+    <string name="shutdown_send_btn">发送</string>
+    <string name="shutdown_title_text">CMD命令</string>
+    <string name="shutdown_title_str">鼠标热区</string>
+    
+    <!-- 窗口页 -->
+    <string name="window_title_str">窗口操作及切换</string>
+    
+    <!-- 关于页面 -->
+    <string name="about_title_1">关于</string>
+    <string name="about_title_content_1">让手机成为电脑的遥控器\n\n版本：V1.0\n作者：a_xiang</string>
+    <string name="about_title_2">使用方法</string>
+    <string name="about_title_content_2">
+        1) 在PC电脑上下载运行PCService\n
+        2) 确保您的PC电脑与手机在同一个WIFI网络\n
+        3) 确保PCService没有被防火墙拦截\n
+        4) 如果您的WIFI路由器支持AP隔离，请禁用该功能\n
+        5) 输入PC端IP后点击连接\n
+        6) 现在您能控制PC电脑了</string>
+        
+
+</resources>
