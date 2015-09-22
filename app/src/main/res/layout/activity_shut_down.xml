@@ -1,12 +1,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:uview="http://schemas.android.com/apk/res/com.mlegeb.app"
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.mlegeb.app.ui.ShutdownActivity" >
+    tools:context="com.mlegeb.remote.activity.ShutdownActivity" >
 
     <FrameLayout
         android:id="@+id/mouse_panel"
@@ -25,11 +24,10 @@
             android:text="@string/shutdown_title_str" />
     </FrameLayout>
 
-    <com.mlegeb.app.widget.LineView
+    <View
         android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_marginBottom="5dp"
-        uview:backgroud="#000000" />
+        android:layout_height="1dp"
+        android:background="#000000"/>
 
     <LinearLayout
         android:layout_width="fill_parent"

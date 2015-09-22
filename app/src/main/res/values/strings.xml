@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">无线控制器</string>
+    <string name="app_name">PC Remote</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_welcome">无线控制器</string>
     <string name="title_activity_guide">引导页</string>
