@@ -120,6 +120,9 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 				}
 				else{
 					Toast.makeText(MainActivity.this, "连接失败！", Toast.LENGTH_LONG).show();
+
+					Intent intentAct = new Intent(MainActivity.this, MenuActivity.class);
+					MainActivity.this.startActivity(intentAct);
 				}
 			}
 		}
