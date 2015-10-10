@@ -5,16 +5,28 @@ android {
     buildToolsVersion '23.0.1'
     defaultConfig {
         applicationId "com.mlegeb.remote"
-        minSdkVersion 15
+        minSdkVersion 14
         targetSdkVersion 23
     }
+
+    signingConfigs {
+        release {
+            keyAlias 'gnaix'
+            keyPassword '990828785'
+            storeFile file('/Users/xiangqing/Documents/workspace/android/gnaix.jks')
+            storePassword '990828785'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
-    }
-    productFlavors {
+        debug {
+            versionNameSuffix "-SNAPSHOT"
+        }
     }
 }
 

@@ -33,7 +33,7 @@
     
     <!-- 关于页面 -->
     <string name="about_title_1">关于</string>
-    <string name="about_title_content_1">让手机成为电脑的遥控器\n\n版本：V1.0\n作者：a_xiang</string>
+    <string name="about_title_content_1">让手机成为电脑的遥控器\n\n版本：V1.0\n作者：gnaix</string>
     <string name="about_title_2">使用方法</string>
     <string name="about_title_content_2">
         1) 在PC电脑上下载运行PCService\n

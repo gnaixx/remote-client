@@ -7,7 +7,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.mlegeb.remote.activity.ShutdownActivity" >
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/mouse_panel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:textSize="30sp"
             android:text="@string/shutdown_title_str" />
-    </FrameLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
