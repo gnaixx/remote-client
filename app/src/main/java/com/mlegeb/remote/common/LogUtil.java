@@ -139,6 +139,7 @@ public class LogUtil {
      * 默认 tag
      *
      * @param msg
+     * @param save 是否写入日志
      */
     public static void e(String msg, boolean... save) {
         StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
@@ -151,13 +152,14 @@ public class LogUtil {
      *
      * @param tag
      * @param msg
+     * @param save 是否写入日志
      */
     public static void e(String tag, String msg, boolean... save) {
         StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
         msg = getLogInfo(stackTraceElement) + msg;
         if (E) Log.e(tag, msg);
         //写入文件
-        if(save != null){
+        if(save[0]){
             writeLog(msg);
         }
     }
@@ -167,6 +169,7 @@ public class LogUtil {
      *
      * @param context
      * @param msg
+     * @param save 是否写入日志
      */
     public static void e(Context context, String msg, boolean... save) {
         String tag = context.getClass().getSimpleName();
@@ -178,6 +181,7 @@ public class LogUtil {
      *
      * @param clazz
      * @param msg
+     * @param save 是否写入日志
      */
     public static void e(Class<?> clazz, String msg, boolean... save) {
         String tag = clazz.getSimpleName();
