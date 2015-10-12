@@ -58,7 +58,6 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
 
 		mDoubleClickExitHelper = new DoubleClickExitHelper(this);
 
@@ -66,7 +65,12 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		//动态注册广播
 		registerServerReceiver();
 	}
-	
+
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_main;
+	}
+
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();

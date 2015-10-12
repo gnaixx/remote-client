@@ -37,10 +37,14 @@ public class PowerPointActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_power_point);
 
 		transmission = new PowerPointTransmission();
 		initView();
+	}
+
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_power_point;
 	}
 
 	private void initView(){

@@ -34,13 +34,17 @@ public class InputActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_input);
 
-		initView();
+		initViews();
+	}
+
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_input;
 	}
 
 	@SuppressLint("ClickableViewAccessibility")
-	private void initView(){
+	private void initViews(){
 		transmission = new KeyboardTransmission();
 
 		editText = (EditText) findViewById(R.id.edit_tv);

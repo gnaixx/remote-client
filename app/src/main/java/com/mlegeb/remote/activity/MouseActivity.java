@@ -34,13 +34,17 @@ public class MouseActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_mouse);
 		mouseManager = new MouseUtil();
 		
 		initView();
 	}
 
-	
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_mouse;
+	}
+
+
 	private void initView(){
 		touchPanel = (FrameLayout) findViewById(R.id.touch_panel);
 		//触摸事件处理

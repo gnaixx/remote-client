@@ -34,14 +34,17 @@ public class WindowActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_window);
-		
-		
+
 		transmission = new WindowTransmssion();
-		initView();
+		initViews();
 	}
-	
-	private void initView(){
+
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_window;
+	}
+
+	private void initViews(){
 		backBtn = (ImageButton) findViewById(R.id.imageButton1);
 		nextBtn = (ImageButton) findViewById(R.id.imageButton2);
 		minBtn = (ImageButton) findViewById(R.id.imageButton3);

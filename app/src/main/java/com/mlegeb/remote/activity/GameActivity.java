@@ -40,13 +40,17 @@ public class GameActivity extends BaseActivity implements OnTouchListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_game);
-		
+
 		
 		transmission = new GameTransmission();
 		initView();
 	}
-	
+
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_game;
+	}
+
 	/**
 	 * 初始化变量
 	 */

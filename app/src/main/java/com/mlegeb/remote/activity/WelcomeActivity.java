@@ -20,19 +20,23 @@ import android.os.Handler;
  * @version v1.0
  * @created 2015年2月4日
  */
-public class WelcomeActivity extends Activity {
+public class WelcomeActivity extends BaseActivity {
 	private final int SPLASH_DISPLAY_LENGHT = 2000; // 延迟3秒  
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_welcome);
 
-		ViewInit();
+		initViews();
 	}
 
-	private void ViewInit(){
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_welcome;
+	}
+
+	private void initViews(){
 		
 		Constants.mouseSensibility = Integer.valueOf(SettingsUtil.getPref(this, Constants.MOUSE_SENSI, 1));
 

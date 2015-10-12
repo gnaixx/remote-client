@@ -39,13 +39,17 @@ public class MenuActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_menu);
-		
+
 		sendState = new SendState();
 		
 		initView();
 	}
-	
+
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_menu;
+	}
+
 	private void initView(){
 		mouseBtn = (ImageButton) findViewById(R.id.imageButton1);
 		pptBtn = (ImageButton) findViewById(R.id.imageButton2);

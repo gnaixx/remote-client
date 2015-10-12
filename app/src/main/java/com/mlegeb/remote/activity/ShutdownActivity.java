@@ -36,13 +36,17 @@ public class ShutdownActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_shut_down);
-		
+
 		transmission = new ShutdownTransmission();
 		mouseManager = new MouseUtil();
 		InitView();
 	}
-	
+
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_shut_down;
+	}
+
 	private void InitView(){
 		command = (EditText) findViewById(R.id.editText1);
 		sendBtn = (Button) findViewById(R.id.button1);

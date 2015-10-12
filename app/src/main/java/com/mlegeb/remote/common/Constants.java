@@ -12,6 +12,9 @@ import android.content.SharedPreferences;
  */
 public class Constants {
 
+	/** 默认Layout Resource **/
+	public final static int DEFALUT_LAYOUT_RESOURCE = -0x01;
+
 	/** 端口 */
 	public final static int LISTENER_PORT = 7590;
 	/** 连接命令 */

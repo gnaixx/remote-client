@@ -27,11 +27,15 @@ public class SettingActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_setting);
-		
+
 		initViews();
 	}
-	
+
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_setting;
+	}
+
 	private void initViews(){
 		mouseSeek = (SeekBar) findViewById(R.id.mouse_sen);
 		mouseSeek.setProgress(Constants.mouseSensibility);

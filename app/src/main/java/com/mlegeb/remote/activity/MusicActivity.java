@@ -36,10 +36,14 @@ public class MusicActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_music);
 
 		transmission = new MusicTransmission();
 		initView();
+	}
+
+	@Override
+	protected int getLayoutResource() {
+		return R.layout.activity_music;
 	}
 
 	private void initView(){
