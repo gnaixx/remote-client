@@ -1,38 +1,42 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.mlegeb.remote.activity.AboutActivity" >
+    android:gravity="center_horizontal"
+    tools:context="com.mlegeb.remote.activity.AboutActivity">
 
     <include layout="@layout/toolbar"/>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20sp"
-        android:text="@string/about_title_1" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/about_title"
+        android:textSize="@dimen/text_size_38pt"/>
 
     <TextView
-        android:id="@+id/textView1"
         android:layout_width="match_parent"
-        android:gravity="center_horizontal"
-        android:layout_height="120dp"
-        android:text="@string/about_title_content_1" />
-    
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_title_content"
+        android:text="@string/about_title_content"/>
+
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20sp"
-        android:text="@string/about_title_2" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_title_guide"
+        android:text="@string/about_guide"
+        android:textSize="@dimen/text_size_38pt"/>
 
     <TextView
-        android:id="@+id/textView2"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:text="@string/about_title_content_2" />
-    
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_title_content"
+        android:layout_marginLeft="@dimen/margin_left"
+        android:text="@string/about_guide_content"/>
+
 
 </LinearLayout>
