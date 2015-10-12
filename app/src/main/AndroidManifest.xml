@@ -82,6 +82,7 @@
             android:name="com.mlegeb.remote.activity.MoreActivity"
             android:screenOrientation="portrait" >
         </activity>
+
     </application>
 
 </manifest>

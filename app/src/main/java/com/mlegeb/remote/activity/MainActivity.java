@@ -225,7 +225,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		boolean isFirst = 
 				Boolean.valueOf(SettingsUtil.getPref(MainActivity.this,
 						Constants.FIRST_START_PAGE_1, true));
-		if(isFirst){
+		if(true){
 			Intent intent = new Intent(MainActivity.this, GuideActivity.class);
 			intent.putExtra("ArrayPoints",
 					ViewUtil.guidePoints(serverIpEdit));

@@ -84,7 +84,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 	 */
 	protected void enableBackable(){
 		if(getSupportActionBar() != null){
-			getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
+			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 			//设置监听
 			if(mToolbar != null){
 				mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

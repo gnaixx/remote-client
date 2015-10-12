@@ -15,6 +15,7 @@ import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
@@ -39,15 +40,6 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 	/** 操作接口 */
 	private SurfaceHolder holder;
 
-	/** 焦点区*/
-	private Bitmap focus = 
-			BitmapFactory.decodeResource(getResources(), 
-					R.drawable.bg_guide_focus);
-	/** 隐藏区 */
-	private Bitmap bg = 
-			BitmapFactory.decodeResource(getResources(),
-					R.drawable.bg_guide);
-	
 	/** 屏幕宽度 */
 	private int screenW;
 	
@@ -63,10 +55,10 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 	/** 步数 */
 	private int step = 0;
 	
-	/** 画笔 */
-	private Paint paint;
-	
-	private Paint paints;
+	/** 背景画笔 */
+	private Paint bgPaint;
+	/** 文字画笔 */
+	private Paint textPaint;
 	
 	public GuideView(Context context){
 		this(context, null);
@@ -83,15 +75,21 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 		
 		screenW = mDisplay.getWidth();
 		screenH = mDisplay.getHeight();
-		
-		paint = new Paint(Color.WHITE);
-		paint.setStyle(Paint.Style.FILL);
-		paint.setAlpha(0);
-		paints = new Paint();
+
+		bgPaint = new Paint(Color.WHITE);
+
+		textPaint = new Paint();
+		textPaint.setColor(Color.WHITE);
+		textPaint.setTextSize(getResources().getDimension(R.dimen.text_size_28pt));
+		textPaint.setAntiAlias(true);
 		holder.addCallback(this);
 		getHolder().setFormat(PixelFormat.TRANSLUCENT);
-	} 
-	
+	}
+
+	/**
+	 * 获取焦点
+	 * @param points
+	 */
 	public void setFocusPoints(FocusPoint[] points){
 		this.setVisibility(View.VISIBLE);
 		this.points = points;
@@ -101,7 +99,7 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 
 	@Override
 	public void surfaceCreated(SurfaceHolder holder) {
-		LogUtil.d(getClass(), "suufaceCreated");
+		LogUtil.d(getClass(), "surfaceCreated");
 		if(flag){
 			doDraw(step);
 		}
@@ -110,7 +108,6 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int width,
 			int height) {
-
 		LogUtil.d(getClass(), "surfaceChanged");
 	}
 
@@ -127,7 +124,6 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 				doDraw(step);
 			}else{
 				((Activity) context).finish();
-				bg.recycle();
 			}
 		}
 		return super.onTouchEvent(event);
@@ -136,37 +132,30 @@ public class GuideView extends SurfaceView implements SurfaceHolder.Callback{
 	private void doDraw(int step){
 		//获取锁定的画布
 		Canvas canvas = getHolder().lockCanvas();
-		//设置半透明，
-		canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
-		Rect srcBg = new Rect(0, 0, bg.getWidth(), bg.getHeight());
-		
+
 		if(step < this.points.length){
 			int left = (int)(points[step].x - points[step].w/10*7);
 			int right = (int)(points[step].x + points[step].w/10*7);
 			int top = (int)(points[step].y - points[step].h/10*7);
 			int bottom = (int)(points[step].y + points[step].h/10*7);
 			
-			if(LogUtil.D)	LogUtil.d(context, 
-					points[step].x+","+points[step].y+","+points[step].w+","+points[step].h);
-			if(LogUtil.D)	LogUtil.d(this.getClass(), left+","+top+","+right+","+bottom);
-			
-			RectF dstFocus = new RectF(left, top, right, bottom); 
-	        canvas.drawBitmap(focus, null, dstFocus, null);
+			LogUtil.d(context,
+					points[step].x + "," + points[step].y + "," + points[step].w + "," + points[step].h);
+			LogUtil.d(this.getClass(), left + "," + top + "," + right + "," + bottom);
 
-			Rect dstTop = new Rect(0, 0, screenW, top);
-			Rect dstBottom = new Rect(0, bottom, screenW, screenH);
-			Rect dstLeft = new Rect(0, top, left, bottom);
-			Rect dstRight = new Rect(right, top, screenW, bottom);
-  		    canvas.drawBitmap(bg, srcBg, dstTop, null);
-			canvas.drawBitmap(bg, srcBg, dstLeft, null);
-			canvas.drawBitmap(bg, srcBg, dstRight, null);
-			canvas.drawBitmap(bg, srcBg, dstBottom, null);
-			
-			paints.setColor(Color.WHITE);
-			paints.setTextSize(20);
-			paints.setAntiAlias(true);
-			paints.setTextAlign(Align.CENTER);
-			canvas.drawText(points[step].msg, points[step].x, bottom+100, paints);
+			//绘制背景
+			canvas.drawColor(getResources().getColor(R.color.status_view));
+
+			//定义画笔
+			bgPaint.setStyle(Paint.Style.FILL);
+			bgPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
+			//绘制焦点区域
+			bgPaint.setAlpha(0);
+			RectF focusRect = new RectF(left, top, right, bottom);
+			canvas.drawRoundRect(focusRect, 5, 5, bgPaint);
+
+			textPaint.setTextAlign(Align.CENTER);
+			canvas.drawText(points[step].msg, points[step].x, bottom+100, textPaint);
 		}
 		this.step++;
 		getHolder().unlockCanvasAndPost(canvas);

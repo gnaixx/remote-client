@@ -5,4 +5,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="key_height">50.0dip</dimen>
 
+    <dimen name="text_size_28pt">15sp</dimen>
+
 </resources>
