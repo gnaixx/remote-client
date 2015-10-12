@@ -13,7 +13,7 @@ import com.mlegeb.remote.common.Constants;
 public class MusicTransmission extends Transmission {
 
 	public MusicTransmission() {
-		super(Constants.conn_address);
+		super();
 	}
 
 	public void sendMusicButton(int type){

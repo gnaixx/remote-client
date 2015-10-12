@@ -1,12 +1,14 @@
 package com.mlegeb.remote.transmission;
 
+import android.text.TextUtils;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 
-
+import com.mlegeb.remote.application.RemoteApplication;
 import com.mlegeb.remote.common.Constants;
 import com.mlegeb.remote.common.LogUtil;
 
@@ -23,9 +25,6 @@ public class Transmission {
 	/** log标签 */
 	private final String TAG = "Transmission";
 	
-	/**  是否打印Log */
-	private final boolean isDebug = true;
-	
 	/** UDP消息包 */
 	protected DatagramPacket packet;
 	
@@ -37,17 +36,20 @@ public class Transmission {
 	
 	/**
 	 * 初始化UDP发送IP
-	 * @param ip
 	 */
-	public Transmission(String ip){
-		try {
-			ipAddress = InetAddress.getByName(ip);
-			socket = new DatagramSocket();
-			if(isDebug)	System.out.println(TAG + ":初始化Socket");
-		} catch (Exception e) {
-			e.printStackTrace();
+	public Transmission(){
+		String ipStr = RemoteApplication.getInstance().getSettings().getIpAddress();
+		if(TextUtils.isEmpty(ipStr)){
+			LogUtil.d(TAG, "ip address is null");
+		}else {
+			try {
+				ipAddress = InetAddress.getByName(ipStr);
+				socket = new DatagramSocket();
+				LogUtil.d(TAG, "初始化Socket");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
-		
 	}
 	
 	/**
@@ -79,10 +81,8 @@ public class Transmission {
 			packet = new DatagramPacket(data, data.length, ipAddress, Constants.LISTENER_PORT);
 			try {
 				socket.send(packet);
-				//if(isDebug)	System.out.println(TAG + ":发送成功");
-				LogUtil.d(this.getClass(), "发送数据：" + msg);
+				LogUtil.d(TAG, "发送数据：" + msg);
 			} catch (IOException e) {
-				//if(isDebug)	System.out.println(TAG + ":发送失败");
 				e.printStackTrace();
 			}
 		}

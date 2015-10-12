@@ -13,7 +13,7 @@ import com.mlegeb.remote.common.Constants;
 public class GameTransmission extends Transmission {
 
 	public GameTransmission() {
-		super(Constants.conn_address);
+		super();
 	}
 	
 	public void sendGameButton(String type){

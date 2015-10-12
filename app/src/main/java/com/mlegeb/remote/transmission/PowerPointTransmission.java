@@ -13,7 +13,7 @@ import com.mlegeb.remote.common.Constants;
 public class PowerPointTransmission extends Transmission {
 
 	public PowerPointTransmission() {
-		super(Constants.conn_address);
+		super();
 	}
 	
 	public void sendPPTControl(int type){

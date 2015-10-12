@@ -13,7 +13,7 @@ import com.mlegeb.remote.common.Constants;
 public class WindowTransmssion extends Transmission {
 
 	public WindowTransmssion() {
-		super(Constants.conn_address);
+		super();
 	}
 	
 	public void sendWindowControl(String data){

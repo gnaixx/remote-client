@@ -10,8 +10,8 @@ package com.mlegeb.remote.transmission;
  */
 public class CheckConnection extends Transmission {
 
-	public CheckConnection(String ip) {
-		super(ip);
+	public CheckConnection() {
+		super();
 	}
 	
 	public void sendCheck(String data){

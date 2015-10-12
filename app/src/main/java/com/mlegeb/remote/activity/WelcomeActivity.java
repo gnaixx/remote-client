@@ -4,9 +4,7 @@ package com.mlegeb.remote.activity;
 
 import com.mlegeb.remote.common.Constants;
 import com.mlegeb.remote.R;
-import com.mlegeb.remote.common.SettingsUtil;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -37,28 +35,14 @@ public class WelcomeActivity extends BaseActivity {
 	}
 
 	private void initViews(){
-		
-		Constants.mouseSensibility = Integer.valueOf(SettingsUtil.getPref(this, Constants.MOUSE_SENSI, 1));
 
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
-//				boolean isFirst = Boolean.valueOf(SettingsUtil.getPref(WelcomeActivity.this, Constants.FIRST_START, true));
-//				if (isFirst) {
-//					//将登录标志位设置为false，下次登录时不在显示首次登录界面  
-//					SettingsUtil.savePref(WelcomeActivity.this, Constants.FIRST_START, false);
-//					
-//					Intent intent=new Intent();
-//					intent.setClass(WelcomeActivity.this, GuideActivity.class);
-//					WelcomeActivity.this.startActivity(intent);
-//					WelcomeActivity.this.finish();
-//				}else{
 					Intent intent=new Intent();
 					intent.setClass(WelcomeActivity.this, MainActivity.class);
 					WelcomeActivity.this.startActivity(intent);
 					WelcomeActivity.this.finish();
-
-//				}
 
 			}
 		},SPLASH_DISPLAY_LENGHT);

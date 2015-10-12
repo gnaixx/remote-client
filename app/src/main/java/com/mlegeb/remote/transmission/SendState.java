@@ -13,7 +13,7 @@ import com.mlegeb.remote.common.Constants;
 public class SendState extends Transmission {
 	
 	public SendState() {
-		super(Constants.conn_address);
+		super();
 	}
 	
 	public void ChangeState(int state){

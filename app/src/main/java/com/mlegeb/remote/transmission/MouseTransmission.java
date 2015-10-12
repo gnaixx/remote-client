@@ -13,7 +13,7 @@ import com.mlegeb.remote.common.Constants;
 public class MouseTransmission extends Transmission {
 
 	public MouseTransmission() {
-		super(Constants.conn_address);
+		super();
 	}
 	
 	public void sendMousePoint(float x, float y){	

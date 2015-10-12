@@ -13,7 +13,7 @@ import com.mlegeb.remote.common.Constants;
 public class KeyboardTransmission extends Transmission {
 
 	public KeyboardTransmission() {
-		super(Constants.conn_address);
+		super();
 	}
 	
 	public void sendKeyCode(String data){

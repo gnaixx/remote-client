@@ -1,18 +1,18 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.mlegeb.remote.activity.GameActivity" >
+<LinearLayout android:id="@+id/LinearLayout1"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              tools:context="com.mlegeb.remote.activity.GameActivity">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="1.5" >
+        android:layout_weight="1.5">
 
 
         <ImageButton
@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/imageButton3"
             android:layout_toRightOf="@+id/imageButton2"
-            android:src="@drawable/game_right" 
-            android:background="@drawable/btn_color"/>
+            android:background="@drawable/btn_color"
+            android:src="@drawable/game_right"/>
 
         <ImageButton
             android:id="@+id/imageButton3"
@@ -30,8 +30,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/game_left" 
-            android:background="@drawable/btn_color"/>
+            android:background="@drawable/btn_color"
+            android:src="@drawable/game_left"/>
 
         <ImageButton
             android:id="@+id/imageButton1"
@@ -40,7 +40,7 @@
             android:layout_above="@+id/imageButton4"
             android:layout_toRightOf="@+id/imageButton3"
             android:background="@drawable/btn_color"
-            android:src="@drawable/game_up" />
+            android:src="@drawable/game_up"/>
 
         <ImageButton
             android:id="@+id/imageButton2"
@@ -49,14 +49,13 @@
             android:layout_alignLeft="@+id/imageButton1"
             android:layout_below="@+id/imageButton4"
             android:background="@drawable/btn_color"
-            android:src="@drawable/game_down" />
+            android:src="@drawable/game_down"/>
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="261dp"
-        android:layout_height="match_parent" >
-
+        android:layout_height="match_parent">
 
         <Button
             android:id="@+id/button2"
@@ -65,12 +64,11 @@
             android:layout_above="@+id/button3"
             android:layout_alignParentRight="true"
             android:layout_marginRight="48dp"
-
-            android:text="  B  " 
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:background="@drawable/game_btn_color"
+            android:text="@string/right_key_b"
             android:textColor="#FFFFFF"
-            android:background="@drawable/game_btn_color"/>
+            android:textSize="@dimen/text_size_38pt"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/button1"
@@ -80,11 +78,11 @@
             android:layout_marginRight="28dp"
             android:layout_marginTop="80dp"
             android:layout_toLeftOf="@+id/button2"
-            android:text="  A  " 
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:background="@drawable/game_btn_color"
+            android:text="@string/right_key_a"
             android:textColor="#FFFFFF"
-            android:background="@drawable/game_btn_color"/>
+            android:textSize="@dimen/text_size_38pt"
+            android:textStyle="bold"/>
 
 
         <Button
@@ -95,11 +93,11 @@
             android:layout_alignBottom="@+id/button3"
             android:layout_alignParentRight="true"
             android:layout_marginRight="19dp"
-           android:text="  D  " 
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:background="@drawable/game_btn_color"
+            android:text="@string/right_key_d"
             android:textColor="#FFFFFF"
-            android:background="@drawable/game_btn_color"/>
+            android:textSize="@dimen/text_size_38pt"
+            android:textStyle="bold"/>
 
 
         <Button
@@ -109,12 +107,12 @@
             android:layout_below="@+id/button1"
             android:layout_marginTop="33dp"
             android:layout_toLeftOf="@+id/button2"
-            android:text="  C  " 
-            android:textSize="20sp"
-            android:textStyle="bold"
+            android:background="@drawable/game_btn_color"
+            android:text="@string/right_key_c"
             android:textColor="#FFFFFF"
-            android:background="@drawable/game_btn_color"/>
-        
+            android:textSize="@dimen/text_size_38pt"
+            android:textStyle="bold"/>
+
     </RelativeLayout>
 
 </LinearLayout>

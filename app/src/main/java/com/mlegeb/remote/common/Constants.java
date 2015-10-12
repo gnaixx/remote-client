@@ -27,14 +27,13 @@ public class Constants {
 	public final static String FIRST_START_PAGE_1 = "first_start_1";
 	/** 第一次运行菜单页功能引导 */
 	public final static String FIRST_START_PAGE_2 = "first_start_2";
-	/** 文件IP key */
+
+	/* preferences key*/
 	public final static String IP_ADDR = "ip_addr";
-	/** 默认IP地址 */
-	public final static String DEF_IP_ADDR = "192.168.6.114";
-	/** 鼠标灵敏度 key*/
+	public final static String IS_FIRST_OPEN = "is_frist_open";
 	public final static String MOUSE_SENSI = "mouse_sensi";
-	
-	
+
+
 	public final static int INIT_STATE     = 0;  //初始化
 	public final static int GAME_STATE     = 1;  //手柄模式
 	public final static int INPUT_STATE    = 2;  //输入模式
@@ -43,39 +42,5 @@ public class Constants {
 	public final static int PPT_STATE      = 5;  //PPT模式
 	public final static int SHUTDOWN_STATE = 6;  //关机模式
 	public final static int WINDOW_STATE   = 7;  //窗口模式
-	
-	/** 连接IP地址 */
-	public static String conn_address = "";    
-	/** 鼠标灵敏度 */
-	public static int mouseSensibility = 1;
-	
-	@SuppressWarnings("unused")
-	private Context mContext;
-	private static Constants appConfig;
-
-	
-	/**
-	 * 单例模式
-	 * @param context
-	 * @return
-	 */
-	public static Constants getAppConfig(Context context) {
-		if (appConfig == null) {
-			appConfig = new Constants();
-			appConfig.mContext = context;
-		}
-		return appConfig;
-	}
-	
-	/**
-	 * 获取Preference设置
-	 * @param context
-	 * @return
-	 */
-	public static SharedPreferences getSharedPrefernces(Context context, String name){
-		return context.getApplicationContext().getSharedPreferences(name, 
-				Context.MODE_PRIVATE);
-	}
-	
 	
 }

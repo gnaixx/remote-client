@@ -13,7 +13,7 @@ import com.mlegeb.remote.common.Constants;
 public class ShutdownTransmission extends Transmission {
 
 	public ShutdownTransmission() {
-		super(Constants.conn_address);
+		super();
 	}
 	
 	public void sendCommand(String data){

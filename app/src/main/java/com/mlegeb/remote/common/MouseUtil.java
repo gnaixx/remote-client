@@ -1,5 +1,6 @@
 package com.mlegeb.remote.common;
 
+import com.mlegeb.remote.application.RemoteApplication;
 import com.mlegeb.remote.transmission.MouseTransmission;
 
 import android.view.MotionEvent;
@@ -45,7 +46,7 @@ public class MouseUtil {
 		my = y -ly;
 		ly = y;
 		if(mx!=0 && my!=0){
-			int xx = Constants.mouseSensibility / 10;
+			int xx = RemoteApplication.getInstance().getSettings().getMouseSensibility() / 10;
 			transmission.sendMousePoint(mx*xx, my*xx);
 		}
 	}
