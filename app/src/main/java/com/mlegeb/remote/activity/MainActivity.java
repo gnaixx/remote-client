@@ -144,7 +144,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
                 aboutEvent();
                 break;
         }
-
     }
 
     /**
@@ -206,6 +205,4 @@ public class MainActivity extends BaseActivity implements OnClickListener {
             startActivity(intent);
         }
     }
-
-
 }
