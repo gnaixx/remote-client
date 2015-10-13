@@ -95,8 +95,6 @@ public class SocketService extends Service {
 				message.what = 0;
 				myHandler.sendMessage(message);
 				LogUtil.d(getClass(),  "IP地址请求超时，连接失败！");
-				
-				//e.printStackTrace();
 			}
 		}
 	}
@@ -133,7 +131,7 @@ public class SocketService extends Service {
 	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		if(LogUtil.D) LogUtil.d(getClass(),  "Destroy");
+		LogUtil.d(getClass(),  "Destroy");
 		this.inSocket.close();
 	}
 }

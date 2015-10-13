@@ -15,7 +15,6 @@
         android:theme="@style/AppBaseTheme" >
         <activity
             android:name="com.mlegeb.remote.activity.WelcomeActivity"
-            android:label="@string/title_activity_welcome"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,9 +29,7 @@
         </activity>
         <activity
             android:name="com.mlegeb.remote.activity.GuideActivity"
-            android:label="@string/title_activity_guide"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".activity.SettingsActivity"
@@ -45,45 +42,52 @@
         </activity>
         <activity
             android:name="com.mlegeb.remote.activity.AboutActivity"
+            android:label="@string/title_activity_about"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.remote.activity.PowerPointActivity"
+            android:label="@string/title_activity_powerpoint"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.remote.activity.MouseActivity"
+            android:label="@string/title_activity_mouse"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.remote.activity.GameActivity"
+            android:label="@string/title_activity_game"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.remote.activity.MusicActivity"
+            android:label="@string/title_activity_music"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.remote.activity.InputActivity"
+            android:label="@string/title_activity_input"
+            android:screenOrientation="landscape">"
+        </activity>
+        <activity
+            android:name="com.mlegeb.remote.activity.WindowActivity"
+            android:label="@string/title_activity_window"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.remote.activity.ShutdownActivity"
+            android:label="@string/title_activity_shutdown"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.mlegeb.remote.activity.MoreActivity"
+            android:label="@string/title_activity_more"
             android:screenOrientation="portrait" >
         </activity>
 
         <service android:name="com.mlegeb.remote.server.SocketService" >
         </service>
-
-        <activity
-            android:name="com.mlegeb.remote.activity.PowerPointActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.mlegeb.remote.activity.MouseActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.mlegeb.remote.activity.GameActivity"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name="com.mlegeb.remote.activity.MusicActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.mlegeb.remote.activity.InputActivity"
-            android:screenOrientation="landscape">"
-        </activity>
-        <activity
-            android:name="com.mlegeb.remote.activity.WindowActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.mlegeb.remote.activity.ShutdownActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.mlegeb.remote.activity.MoreActivity"
-            android:screenOrientation="portrait" >
-        </activity>
-
     </application>
 
 </manifest>
