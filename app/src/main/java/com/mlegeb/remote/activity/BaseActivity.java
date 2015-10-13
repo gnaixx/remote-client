@@ -7,9 +7,10 @@ import com.mlegeb.remote.common.Constants;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * 名称: BaseActivity.java
@@ -24,15 +25,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 	private Toolbar mToolbar;
 	private TextView mToolbarTitle;
 
-
-	// 是否允许全屏
-	private boolean allowFullScreen = true;
-
-	// 是否允许销毁
-	private boolean allowDestroy = true;
-
-	private View view;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,7 +33,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 			setContentView(getLayoutResource());
 		}
 
-		allowFullScreen = true;
 		// 添加Activity到堆栈
 		AppManager.getAppManager().addActivity(this);
 
@@ -97,49 +88,18 @@ public abstract class BaseActivity extends AppCompatActivity {
 		}
 	}
 
-
-	/**
-	 * 查看是否全屏
-	 * @return
-	 */
-	public boolean isAllowFullScreen() {
-		return allowFullScreen;
-	}
-
-	/**
-	 * 设置是否可以全屏
-	 * 
-	 * @param allowFullScreen
-	 */
-	public void setAllowFullScreen(boolean allowFullScreen) {
-		this.allowFullScreen = allowFullScreen;
-	}
-
-	public void setAllowDestroy(boolean allowDestroy) {
-		this.allowDestroy = allowDestroy;
-	}
-
-	public void setAllowDestroy(boolean allowDestroy, View view) {
-		this.allowDestroy = allowDestroy;
-		this.view = view;
-	}
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK && view != null) {
-			view.onKeyDown(keyCode, event);
-			if (!allowDestroy) {
-				return false;
-			}
-		}
-		return super.onKeyDown(keyCode, event);
-	}
-
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
+		unRegisterEventBus();
+	}
 
-		// 结束Activity&从堆栈中移除
-		AppManager.getAppManager().finishActivity(this);
+	/**
+	 * 注销eventBus
+	 */
+	private void unRegisterEventBus(){
+		if(EventBus.getDefault().isRegistered(this)){
+			EventBus.getDefault().unregister(this);
+		}
 	}
 }

@@ -7,6 +7,7 @@ import com.mlegeb.remote.common.Constants;
 import com.mlegeb.remote.R;
 import com.mlegeb.remote.common.DoubleClickExitHelper;
 import com.mlegeb.remote.common.ViewUtil;
+import com.mlegeb.remote.event.ConnectedEvent;
 import com.mlegeb.remote.model.Settings;
 import com.mlegeb.remote.server.SocketService;
 import com.mlegeb.remote.transmission.CheckConnection;
@@ -23,6 +24,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * 名称: MainActivity.java
  * 描述: 登入页面
@@ -35,8 +38,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
     //双击工具类
     private DoubleClickExitHelper mDoubleClickExitHelper;
-    //广播接收者
-    private ServerReceiver receiver;
     //连接按钮
     private Button connBtn;
     //设置按钮
@@ -58,20 +59,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         mSettings = RemoteApplication.getInstance().getSettings();
         mDoubleClickExitHelper = new DoubleClickExitHelper(this);
         initViews();
-        //动态注册广播
-        registerServerReceiver();
+
+        //注册EventBus
+        EventBus.getDefault().register(this);
     }
 
     @Override
     protected int getLayoutResource() {
         return R.layout.activity_main;
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //注销广播
-        this.unregisterReceiver(receiver);
     }
 
     /**
@@ -94,43 +89,27 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     }
 
     /**
-     * 名称: MainActivity.java
-     * 描述: 广播接收者
+     * 连接事件
      *
-     * @author a_xiang
-     * @version v1.0
-     * @created 2015年2月4日
+     * @param event
      */
-    private class ServerReceiver extends BroadcastReceiver {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(Constants.RETURN_ACTION)) {
-                if (intent.getBooleanExtra("result", false)) {
-                    Toast.makeText(MainActivity.this, "连接成功！", Toast.LENGTH_LONG).show();
-                    //写入配置
-                    mSettings.setIpAddress(serverIpEdit.getText().toString());
-                    RemoteApplication.getInstance().writeSettings();
+    public void onEventMainThread(ConnectedEvent event) {
+        if(event.isConnected()){
+            Toast.makeText(MainActivity.this, "连接成功！", Toast.LENGTH_LONG).show();
+            //写入配置
+            mSettings.setIpAddress(serverIpEdit.getText().toString());
+            RemoteApplication.getInstance().writeSettings();
 
-                    //跳转到菜单页面
-                    Intent intentAct = new Intent(MainActivity.this, MenuActivity.class);
-                    MainActivity.this.startActivity(intentAct);
-                } else {
-                    Toast.makeText(MainActivity.this, "连接失败！", Toast.LENGTH_LONG).show();
+            //跳转到菜单页面
+            Intent intentAct = new Intent(MainActivity.this, MenuActivity.class);
+            MainActivity.this.startActivity(intentAct);
+        }else{
+            Toast.makeText(MainActivity.this, "连接失败！", Toast.LENGTH_LONG).show();
 
-                    Intent intentAct = new Intent(MainActivity.this, MenuActivity.class);
-                    MainActivity.this.startActivity(intentAct);
-                }
-            }
+            Intent intentAct = new Intent(MainActivity.this, MenuActivity.class);
+            MainActivity.this.startActivity(intentAct);
+
         }
-    }
-
-    /**
-     * 注册广播
-     */
-    private void registerServerReceiver() {
-        IntentFilter filter = new IntentFilter(Constants.RETURN_ACTION);
-        receiver = new ServerReceiver();
-        registerReceiver(receiver, filter);
     }
 
     /**
@@ -167,7 +146,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
         }
 
     }
-
 
     /**
      * 跳转到设置页面
@@ -216,7 +194,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        boolean isFirst = mSettings!=null?mSettings.isFristOpen():true;
+        boolean isFirst = mSettings != null ? mSettings.isFristOpen() : true;
         if (isFirst) {
             //保存配置
             mSettings.setIsFristOpen(false);

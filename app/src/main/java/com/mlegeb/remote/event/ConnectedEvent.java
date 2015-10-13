@@ -10,4 +10,25 @@ package com.mlegeb.remote.event;
 public class ConnectedEvent {
     private boolean isConnected;
     private int resultCode;
+
+    public ConnectedEvent(boolean isConnected, int resultCode) {
+        this.isConnected = isConnected;
+        this.resultCode = resultCode;
+    }
+
+    public boolean isConnected() {
+        return isConnected;
+    }
+
+    public void setIsConnected(boolean isConnected) {
+        this.isConnected = isConnected;
+    }
+
+    public int getResultCode() {
+        return resultCode;
+    }
+
+    public void setResultCode(int resultCode) {
+        this.resultCode = resultCode;
+    }
 }
