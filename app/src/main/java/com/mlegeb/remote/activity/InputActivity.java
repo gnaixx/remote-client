@@ -4,7 +4,7 @@ package com.mlegeb.remote.activity;
 
 import com.mlegeb.remote.R;
 import com.mlegeb.remote.common.KeyboardUtil;
-import com.mlegeb.remote.transmission.KeyboardTransmission;
+import com.mlegeb.remote.netwrok.transmission.KeyboardTransmission;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.InputType;
@@ -30,7 +30,7 @@ public class InputActivity extends BaseActivity {
 	private KeyboardTransmission transmission;
 	
 	/** 键盘工具  */
-	private KeyboardUtil keyboard;
+	private KeyboardUtil keyboardUtil;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,16 +49,16 @@ public class InputActivity extends BaseActivity {
 
 		editText = (EditText) findViewById(R.id.edit_tv);
 		editText.setInputType(InputType.TYPE_NULL);
-		keyboard = new KeyboardUtil(InputActivity.this, 
+		keyboardUtil = new KeyboardUtil(InputActivity.this,
 				InputActivity.this, 
 				editText,
 				transmission);
-		keyboard.showKeyboard();
+		keyboardUtil.showKeyboard();
 		//点击输入框显示键盘
 		editText.setOnTouchListener(new OnTouchListener() {
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
-				keyboard.showKeyboard();
+				keyboardUtil.showKeyboard();
 				return true;
 			}
 		});

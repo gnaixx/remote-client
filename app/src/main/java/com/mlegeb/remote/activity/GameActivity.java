@@ -1,7 +1,7 @@
 package com.mlegeb.remote.activity;
 
 import com.mlegeb.remote.R;
-import com.mlegeb.remote.transmission.GameTransmission;
+import com.mlegeb.remote.netwrok.transmission.GameTransmission;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;

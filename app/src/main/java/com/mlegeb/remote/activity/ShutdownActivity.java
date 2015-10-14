@@ -2,7 +2,7 @@ package com.mlegeb.remote.activity;
 
 import com.mlegeb.remote.R;
 import com.mlegeb.remote.common.MouseUtil;
-import com.mlegeb.remote.transmission.ShutdownTransmission;
+import com.mlegeb.remote.netwrok.transmission.ShutdownTransmission;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;

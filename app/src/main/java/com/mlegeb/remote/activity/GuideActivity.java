@@ -4,7 +4,7 @@ package com.mlegeb.remote.activity;
 
 import com.mlegeb.remote.R;
 import com.mlegeb.remote.common.Constants;
-import com.mlegeb.remote.common.FocusPoint;
+import com.mlegeb.remote.model.FocusPoint;
 import com.mlegeb.remote.common.LogUtil;
 import com.mlegeb.remote.widget.GuideView;
 

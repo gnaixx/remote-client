@@ -1,7 +1,7 @@
 package com.mlegeb.remote.activity;
 
 import com.mlegeb.remote.R;
-import com.mlegeb.remote.transmission.PowerPointTransmission;
+import com.mlegeb.remote.netwrok.transmission.PowerPointTransmission;
 
 import android.os.Bundle;
 import android.view.Menu;

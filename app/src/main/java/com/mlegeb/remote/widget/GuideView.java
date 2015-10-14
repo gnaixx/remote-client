@@ -1,14 +1,12 @@
 package com.mlegeb.remote.widget;
 
 import com.mlegeb.remote.R;
-import com.mlegeb.remote.common.FocusPoint;
+import com.mlegeb.remote.model.FocusPoint;
 import com.mlegeb.remote.common.LogUtil;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -16,7 +14,6 @@ import android.graphics.Paint.Align;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.Display;

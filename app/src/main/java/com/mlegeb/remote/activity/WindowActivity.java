@@ -1,7 +1,7 @@
 package com.mlegeb.remote.activity;
 
 import com.mlegeb.remote.R;
-import com.mlegeb.remote.transmission.WindowTransmssion;
+import com.mlegeb.remote.netwrok.transmission.WindowTransmssion;
 
 import android.os.Bundle;
 import android.view.Menu;

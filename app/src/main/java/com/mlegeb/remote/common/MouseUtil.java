@@ -1,7 +1,7 @@
 package com.mlegeb.remote.common;
 
 import com.mlegeb.remote.application.RemoteApplication;
-import com.mlegeb.remote.transmission.MouseTransmission;
+import com.mlegeb.remote.netwrok.transmission.MouseTransmission;
 
 import android.view.MotionEvent;
 

@@ -1,4 +1,4 @@
-package com.mlegeb.remote.transmission;
+package com.mlegeb.remote.netwrok.transmission;
 
 /**
  * 名称: CheckConnection.java

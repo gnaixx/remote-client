@@ -6,7 +6,7 @@ import com.mlegeb.remote.common.Constants;
 import com.mlegeb.remote.R;
 import com.mlegeb.remote.common.ViewUtil;
 import com.mlegeb.remote.model.Settings;
-import com.mlegeb.remote.transmission.SendState;
+import com.mlegeb.remote.netwrok.transmission.SendState;
 
 import android.content.Intent;
 import android.os.Bundle;

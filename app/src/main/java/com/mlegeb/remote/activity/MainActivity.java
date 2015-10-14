@@ -10,12 +10,9 @@ import com.mlegeb.remote.common.ViewUtil;
 import com.mlegeb.remote.event.ConnectedEvent;
 import com.mlegeb.remote.model.Settings;
 import com.mlegeb.remote.server.SocketService;
-import com.mlegeb.remote.transmission.CheckConnection;
+import com.mlegeb.remote.netwrok.transmission.CheckConnection;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;

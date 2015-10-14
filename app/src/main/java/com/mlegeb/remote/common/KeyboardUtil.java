@@ -3,11 +3,10 @@ package com.mlegeb.remote.common;
 import java.util.List;
 
 import com.mlegeb.remote.R;
-import com.mlegeb.remote.transmission.KeyboardTransmission;
+import com.mlegeb.remote.netwrok.transmission.KeyboardTransmission;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.Keyboard.Key;
 import android.inputmethodservice.KeyboardView;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
@@ -37,10 +36,10 @@ public class KeyboardUtil {
 	private KeyboardView keyboardView;
 
 	/** 字母键盘 */
-	private Keyboard key_english;
+	private android.inputmethodservice.Keyboard key_english;
 
 	/**  数字键盘及第二个菜单 */
-	private Keyboard symbols,symbols_shift;
+	private android.inputmethodservice.Keyboard symbols,symbols_shift;
 
 	/** 是否数据键盘 */
 	public boolean isnun = false;
@@ -62,17 +61,17 @@ public class KeyboardUtil {
 	 * @param editText 用于显示输入
 	 * @param mtransmission 信息传送类
 	 */
-	public KeyboardUtil(Activity activity, 
-			Context context, 
-			EditText editText,
-			KeyboardTransmission mtransmission) {
+	public KeyboardUtil(Activity activity,
+						Context context,
+						EditText editText,
+						KeyboardTransmission mtransmission) {
 		this.transmission = mtransmission;
 		this.myActivity = activity;
 		this.myContext = context;
 		this.ed = editText;
-		key_english = new Keyboard(myContext, R.xml.english);
-		symbols = new Keyboard(myContext, R.xml.symbols);
-		symbols_shift=new Keyboard(myContext, R.xml.symbols_shift);
+		key_english = new android.inputmethodservice.Keyboard(myContext, R.xml.english);
+		symbols = new android.inputmethodservice.Keyboard(myContext, R.xml.symbols);
+		symbols_shift=new android.inputmethodservice.Keyboard(myContext, R.xml.symbols_shift);
 
 		keyboardView = (KeyboardView) myActivity
 				.findViewById(R.id.keyboard_view);
@@ -121,10 +120,10 @@ public class KeyboardUtil {
 		public void onKey(int primaryCode, int[] keyCodes) {
 			Editable editable = ed.getText();
 			int start = ed.getSelectionStart();
-			if (primaryCode == Keyboard.KEYCODE_CANCEL) {// 完成
+			if (primaryCode == android.inputmethodservice.Keyboard.KEYCODE_CANCEL) {// 完成
 				// 完成按钮所做的动作
 				hideKeyboard();
-			} else if (primaryCode == Keyboard.KEYCODE_DELETE) {// 回退
+			} else if (primaryCode == android.inputmethodservice.Keyboard.KEYCODE_DELETE) {// 回退
 				// 删除按钮所做的动作
 				if (editable != null && editable.length() > 0) {
 					if (start > 0) {
@@ -132,12 +131,12 @@ public class KeyboardUtil {
 					}
 				}
 				transmission.sendKeyCode(Constants.INPUT_STATE + ":\\b");
-			} else if (primaryCode == Keyboard.KEYCODE_SHIFT) {
+			} else if (primaryCode == android.inputmethodservice.Keyboard.KEYCODE_SHIFT) {
 				// 大小写切换
 				changeKey();
 				keyboardView.setKeyboard(key_english);
 
-			} else if (primaryCode == Keyboard.KEYCODE_MODE_CHANGE) {
+			} else if (primaryCode == android.inputmethodservice.Keyboard.KEYCODE_MODE_CHANGE) {
 				// 数字键盘切换,默认是英文键盘
 				if (isnun) {
 					isnun = false;

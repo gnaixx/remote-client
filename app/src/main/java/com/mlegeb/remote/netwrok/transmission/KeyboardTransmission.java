@@ -1,6 +1,4 @@
-package com.mlegeb.remote.transmission;
-
-import com.mlegeb.remote.common.Constants;
+package com.mlegeb.remote.netwrok.transmission;
 
 /**
  * 名称: KeyboardTransmission.java

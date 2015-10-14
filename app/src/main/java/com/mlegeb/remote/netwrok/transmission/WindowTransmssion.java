@@ -1,4 +1,4 @@
-package com.mlegeb.remote.transmission;
+package com.mlegeb.remote.netwrok.transmission;
 
 import com.mlegeb.remote.common.Constants;
 

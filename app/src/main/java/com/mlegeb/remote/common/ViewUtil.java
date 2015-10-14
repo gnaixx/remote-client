@@ -3,6 +3,7 @@ package com.mlegeb.remote.common;
 import android.view.View;
 
 import com.mlegeb.remote.R;
+import com.mlegeb.remote.model.FocusPoint;
 
 /**
  * 名称: ViewUtil.java
